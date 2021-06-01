@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnRepos">Respo</button>
+    <script>
+        class registro {
+            nome
+            quantidade_estrelas
+            quantidade_contribuintes
+            quantidade_forks
+            contribuintes_url
+
+            constructor (nome, quantidade_estrelas, quantidade_contribuintes, quantidade_forks, contribuintes_url){
+                this.nome = nome
+                this.quantidade_estrelas = quantidade_estrelas
+                this.quantidade_contribuintes = quantidade_contribuintes
+                this.quantidade_forks = quantidade_forks
+                this.contribuintes_url = contribuintes_url
+            }
+        }
+
+        const btnRepos = document.getElementById("btnRepos")
+        btnRepos.addEventListener("click", getRepos)
+        async function getRepos() {
+            /* caso queira pegar mais casos. Alterar a quantidade de stars.
+               Exemplo start:>=1000. Nesse caso só estou pegando o primeiro caso */
+            const url = "https://api.github.com/search/repositories?q=stars:>=50000+language:javascript&sort=stars&order=desc&per_page=100&page=1"
+            const response = await fetch(url)
+            const result = await response.json()
+            var array = []
+            /* Trata os primeiros 100 repositorios da pagina 1 */
+            for (i in result.items) {
+                const reg = new registro(result.items[i].full_name, 
+                                        result.items[i].stargazers_count,
+                                        0,
+                                        result.items[i].forks_count,
+                                        result.items[i].contributors_url)
+                
+                for(y=1;y<100000;y++){
+
+                }
+
+                var z = 1
+                var fim = 0
+                var quant_contribuintes = 0
+                /* Pega o link de contribuintes de cada repositório para encontrar o total 
+                   de contribuientes */
+                do {
+                    /* Passar em todas as páginas de contribuientes de um repositório */
+                    const urlContribuientes = reg.contribuintes_url + `?page=${z}&per_page=100`
+                    const responseContribuientes  = await fetch(urlContribuientes)
+                    const resultadoContribuientes = await responseContribuientes.json()
+                    /* Caso não tenha registros ou ocorra erro <> 200 sai do loop */
+                    if (resultadoContribuientes.length == 0 || 
+                        responseContribuientes.status != 200 ) {
+                        fim = 1
+                    } else {
+                        /* Percorre toda a lista de contribuientes da página */
+                        for (x in resultadoContribuientes) {
+                            quant_contribuintes++
+                        }
+                    }
+                    z++
+                } while (fim == 0)
+                
+                console.log(i)
+                console.log(quant_contribuintes)
+
+                reg.quantidade_contribuintes = quant_contribuintes
+
+                array.push(reg)
+            }
+
+            console.log(array)            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1300 @@
+keras	51261	
+scikit-learn	45953	
+superset	38768	
+MadeWithML	25849	
+Probabilistic-Programming-and-Bayesian-Methods-for-Hackers	23090	
+data-science-ipython-notebooks	21151	
+spaCy	20559	
+ML-From-Scratch	19912	
+ray	16104	
+awesome-datascience	15890	
+ipython	14816	
+streamlit	14682	
+dash	14601	
+matplotlib	13700	
+pytorch-lightning	13692	
+Virgilio	13058	
+fastbook	12508	
+AI-Expert-Roadmap	12214	
+stanford-cs-229-machine-learning	12117	
+gensim	12110	
+Awesome-pytorch-list	11873	
+python-machine-learning-book	11218	
+dive-into-machine-learning	10545	
+applied-ml	10305	
+allennlp	10062	
+recommenders	9986	
+awesome-bigdata	9969	
+d2l-en	9961	
+nni	9700	
+tflearn	9537	
+mit-deep-learning	8558	
+seaborn	8459	
+OpenRefine	8164	
+tpot	8032	
+dvc	7984	
+numerical-linear-algebra	7918	
+computervision-recipes	7751	
+mlcourse.ai	7656	
+pandas-profiling	7393	
+prefect	6357	
+python-machine-learning-book-2nd-edition	6309	
+python-small-examples	6135	
+machine_learning_examples	6127	
+industry-machine-learning	5922	
+catboost	5881	
+roughViz	5790	
+tsfresh	5669	
+featuretools	5580	
+amazon-sagemaker-examples	5553	
+nteract	5550	
+data-science-blogs	5507	
+boltons	5470	
+h2o-3	5360	
+smile	5267	
+imbalanced-learn	5258	
+best-of-ml-python	5256	
+pachyderm	5075	
+Data-Analysis-and-Machine-Learning-Projects	5027	
+gop	4945	
+stanford-cs-230-deep-learning	4889	
+awesome-mlops	4796	
+knowledge-repo	4776	
+course-v3	4731	
+machine-learning-roadmap	4687	
+cookiecutter-data-science	4662	
+snorkel	4639	
+edward	4638	
+awesome-R	4622	
+Learn-Data-Science-For-Free	4598	
+pyod	4542	
+great_expectations	4476	
+metaflow	4388	
+serenata-de-amor	4283	
+DataSciencePython	4279	
+data-science-interviews	4184	
+machine-learning-for-trading	4122	
+sktime	4026	
+hydrogen	3707	
+d2l-pytorch	3691	
+akshare	3570	
+pycaret	3506	
+mlxtend	3500	
+Ai-Learn	3473	
+learning	3412	
+dagster	3389	
+trino	3382	
+autogluon	3334	
+probability	3326	
+Hub	3272	
+scikit-learn-videos	3128	
+tensorwatch	3102	
+telegram-list	3077	
+spark-notebook	3032	
+data-science-at-the-command-line	3025	
+Flux.jl	3022	
+airbyte	2952	
+dowhy	2948	
+chartify	2923	
+r4ds	2918	
+gophernotes	2915	
+keras	51261	
+scikit-learn	45953	
+superset	38768	
+MadeWithML	25849	
+Probabilistic-Programming-and-Bayesian-Methods-for-Hackers	23090	
+data-science-ipython-notebooks	21151	
+spaCy	20559	
+ML-From-Scratch	19912	
+ray	16104	
+awesome-datascience	15890	
+ipython	14816	
+streamlit	14682	
+dash	14601	
+matplotlib	13700	
+pytorch-lightning	13692	
+Virgilio	13058	
+fastbook	12508	
+AI-Expert-Roadmap	12214	
+stanford-cs-229-machine-learning	12117	
+gensim	12110	
+Awesome-pytorch-list	11873	
+python-machine-learning-book	11218	
+dive-into-machine-learning	10545	
+applied-ml	10305	
+allennlp	10062	
+recommenders	9986	
+awesome-bigdata	9969	
+d2l-en	9961	
+nni	9700	
+tflearn	9537	
+mit-deep-learning	8558	
+seaborn	8459	
+OpenRefine	8164	
+tpot	8032	
+dvc	7984	
+numerical-linear-algebra	7918	
+computervision-recipes	7751	
+mlcourse.ai	7656	
+pandas-profiling	7393	
+prefect	6357	
+python-machine-learning-book-2nd-edition	6309	
+python-small-examples	6135	
+machine_learning_examples	6127	
+industry-machine-learning	5922	
+catboost	5881	
+roughViz	5790	
+tsfresh	5669	
+featuretools	5580	
+amazon-sagemaker-examples	5553	
+nteract	5550	
+data-science-blogs	5507	
+boltons	5470	
+h2o-3	5360	
+smile	5267	
+imbalanced-learn	5258	
+best-of-ml-python	5256	
+pachyderm	5075	
+Data-Analysis-and-Machine-Learning-Projects	5027	
+gop	4945	
+stanford-cs-230-deep-learning	4889	
+awesome-mlops	4796	
+knowledge-repo	4776	
+course-v3	4731	
+machine-learning-roadmap	4687	
+cookiecutter-data-science	4662	
+snorkel	4639	
+edward	4638	
+awesome-R	4622	
+Learn-Data-Science-For-Free	4598	
+pyod	4542	
+great_expectations	4476	
+metaflow	4388	
+serenata-de-amor	4283	
+DataSciencePython	4279	
+data-science-interviews	4184	
+machine-learning-for-trading	4122	
+sktime	4026	
+hydrogen	3707	
+d2l-pytorch	3691	
+akshare	3570	
+pycaret	3506	
+mlxtend	3500	
+Ai-Learn	3473	
+learning	3412	
+dagster	3389	
+trino	3382	
+autogluon	3334	
+probability	3326	
+Hub	3272	
+scikit-learn-videos	3128	
+tensorwatch	3102	
+telegram-list	3077	
+spark-notebook	3032	
+data-science-at-the-command-line	3025	
+Flux.jl	3022	
+airbyte	2952	
+dowhy	2948	
+chartify	2923	
+r4ds	2918	
+gophernotes	2915	
+OpenRefine;8164	
+serenata-de-amor;4283	
+airbyte;2952	
+danfojs;1464	
+flyte;1435	
+CodeSearchNet;1419	
+querido-diario;698	
+lets-plot;620	
+OpenSource-RoadMap-DataScience;446	
+DataCleaner;401	
+wptools;385	
+datmo;334	
+food-inspections-evaluation;318	
+oie-resources;300	
+Cryptocurrency-Analysis-Python;292	
+open-quant-live-book;279	
+apd-core;270	
+climate-change-data;217	
+scihub;214	
+lets-plot-kotlin;200	
+data-science-live-book;195	
+dstack;182	
+open-solution-data-science-bowl-2018;158	
+spark-alchemy;136	
+telemetry;82	
+openml-r;82	
+classifai;78	
+meteostat-python;58	
+covid19africa;47	
+kuwala;46	
+novedejulho;35	
+open-geo-data-education;33	
+ml-ai;32	
+iati.cloud;31	
+openstreetmap-data-science;28	
+covid19-map;27	
+datascience;27	
+fraud-detection-handbook;26	
+Open-Data-Lab;24	
+data-science-notes;23	
+magicbox-open-api;23	
+Uber-Data-Analysis;21	
+open-datasets;21	
+events;21	
+open-data-bikes-analysis;19	
+aurora;18	
+jitenshea;17	
+r-collaboration;17	
+data-science-indonesia-bootcamp-2016;17	
+skdata;16	
+fossos;15	
+awesome-open-science;14	
+awesome-climate-data;14	
+Datscan;13	
+geebook;13	
+HiggsExample20112012;12	
+open-solution-talking-data;11	
+canwqdata;11	
+broadcast-research;11	
+magicbox-maps;10	
+whyqd;10	
+Helsinki-Open-Data-Science;9	
+dados-pb;9	
+awesome-italian-public-datasets;8	
+public-data;8	
+suricate;7	
+dataphile;7	
+radlquartier;7	
+rubrix;7	
+istacpy;7	
+govpack;7	
+21W-UP206A;6	
+BCG;6	
+darkgreybox;6	
+dev;5	
+Scrap.py;5	
+atmdata;5	
+istacr;5	
+open-engine-data;4	
+caracterizacao-dados-abertos-gov;4	
+corporateZ;4	
+raspagem-sefaz;4	
+awesome-city-data;4	
+rds-r;4	
+rds-js;4	
+datasets;3	
+betterGrow;3	
+OpenDATUM;3	
+opendata-example;3	
+openpdi;3	
+london-olympics-disparate-impact;3	
+rds-js-examples;3	
+Ukuli-Tulevaisuus-Site;3	
+ecommerce-peru-scrap-cli;3	
+arcadia;3	
+querido-diario-php;3	
+predictive-maintenance;3	
+datascience-course;2	
+mflux-ai-tutorials;2	
+open-dataset;2	
+keras	51261	
+scikit-learn	45953	
+superset	38768	
+MadeWithML	25849	
+Probabilistic-Programming-and-Bayesian-Methods-for-Hackers	23090	
+data-science-ipython-notebooks	21151	
+spaCy	20559	
+ML-From-Scratch	19912	
+ray	16104	
+awesome-datascience	15890	
+ipython	14816	
+streamlit	14682	
+dash	14601	
+matplotlib	13700	
+pytorch-lightning	13692	
+Virgilio	13058	
+fastbook	12508	
+AI-Expert-Roadmap	12214	
+stanford-cs-229-machine-learning	12117	
+gensim	12110	
+Awesome-pytorch-list	11873	
+python-machine-learning-book	11218	
+dive-into-machine-learning	10545	
+applied-ml	10305	
+allennlp	10062	
+recommenders	9986	
+awesome-bigdata	9969	
+d2l-en	9961	
+nni	9700	
+tflearn	9537	
+mit-deep-learning	8558	
+seaborn	8459	
+OpenRefine	8164	
+tpot	8032	
+dvc	7984	
+numerical-linear-algebra	7918	
+computervision-recipes	7751	
+mlcourse.ai	7656	
+pandas-profiling	7393	
+prefect	6357	
+python-machine-learning-book-2nd-edition	6309	
+python-small-examples	6135	
+machine_learning_examples	6127	
+industry-machine-learning	5922	
+catboost	5881	
+roughViz	5790	
+tsfresh	5669	
+featuretools	5580	
+amazon-sagemaker-examples	5553	
+nteract	5550	
+data-science-blogs	5507	
+boltons	5470	
+h2o-3	5360	
+smile	5267	
+imbalanced-learn	5258	
+best-of-ml-python	5256	
+pachyderm	5075	
+Data-Analysis-and-Machine-Learning-Projects	5027	
+gop	4945	
+stanford-cs-230-deep-learning	4889	
+awesome-mlops	4796	
+knowledge-repo	4776	
+course-v3	4731	
+machine-learning-roadmap	4687	
+cookiecutter-data-science	4662	
+snorkel	4639	
+edward	4638	
+awesome-R	4622	
+Learn-Data-Science-For-Free	4598	
+pyod	4542	
+great_expectations	4476	
+metaflow	4388	
+serenata-de-amor	4283	
+DataSciencePython	4279	
+data-science-interviews	4184	
+machine-learning-for-trading	4122	
+sktime	4026	
+hydrogen	3707	
+d2l-pytorch	3691	
+akshare	3570	
+pycaret	3506	
+mlxtend	3500	
+Ai-Learn	3473	
+learning	3412	
+dagster	3389	
+trino	3382	
+autogluon	3334	
+probability	3326	
+Hub	3272	
+scikit-learn-videos	3128	
+tensorwatch	3102	
+telegram-list	3077	
+spark-notebook	3032	
+data-science-at-the-command-line	3025	
+Flux.jl	3022	
+airbyte	2952	
+dowhy	2948	
+chartify	2923	
+r4ds	2918	
+gophernotes	2915	
+keras	51261	
+scikit-learn	45953	
+superset	38768	
+MadeWithML	25849	
+Probabilistic-Programming-and-Bayesian-Methods-for-Hackers	23090	
+data-science-ipython-notebooks	21151	
+spaCy	20559	
+ML-From-Scratch	19912	
+ray	16104	
+awesome-datascience	15890	
+ipython	14816	
+streamlit	14682	
+dash	14601	
+matplotlib	13700	
+pytorch-lightning	13692	
+Virgilio	13058	
+fastbook	12508	
+AI-Expert-Roadmap	12214	
+stanford-cs-229-machine-learning	12117	
+gensim	12110	
+Awesome-pytorch-list	11873	
+python-machine-learning-book	11218	
+dive-into-machine-learning	10545	
+applied-ml	10305	
+allennlp	10062	
+recommenders	9986	
+awesome-bigdata	9969	
+d2l-en	9961	
+nni	9700	
+tflearn	9537	
+mit-deep-learning	8558	
+seaborn	8459	
+OpenRefine	8164	
+tpot	8032	
+dvc	7984	
+numerical-linear-algebra	7918	
+computervision-recipes	7751	
+mlcourse.ai	7656	
+pandas-profiling	7393	
+prefect	6357	
+python-machine-learning-book-2nd-edition	6309	
+python-small-examples	6135	
+machine_learning_examples	6127	
+industry-machine-learning	5922	
+catboost	5881	
+roughViz	5790	
+tsfresh	5669	
+featuretools	5580	
+amazon-sagemaker-examples	5553	
+nteract	5550	
+data-science-blogs	5507	
+boltons	5470	
+h2o-3	5360	
+smile	5267	
+imbalanced-learn	5258	
+best-of-ml-python	5256	
+pachyderm	5075	
+Data-Analysis-and-Machine-Learning-Projects	5027	
+gop	4945	
+stanford-cs-230-deep-learning	4889	
+awesome-mlops	4796	
+knowledge-repo	4776	
+course-v3	4731	
+machine-learning-roadmap	4687	
+cookiecutter-data-science	4662	
+snorkel	4639	
+edward	4638	
+awesome-R	4622	
+Learn-Data-Science-For-Free	4598	
+pyod	4542	
+great_expectations	4476	
+metaflow	4388	
+serenata-de-amor	4283	
+DataSciencePython	4279	
+data-science-interviews	4184	
+machine-learning-for-trading	4122	
+sktime	4026	
+hydrogen	3707	
+d2l-pytorch	3691	
+akshare	3570	
+pycaret	3506	
+mlxtend	3500	
+Ai-Learn	3473	
+learning	3412	
+dagster	3389	
+trino	3382	
+autogluon	3334	
+probability	3326	
+Hub	3272	
+scikit-learn-videos	3128	
+tensorwatch	3102	
+telegram-list	3077	
+spark-notebook	3032	
+data-science-at-the-command-line	3025	
+Flux.jl	3022	
+airbyte	2952	
+dowhy	2948	
+chartify	2923	
+r4ds	2918	
+gophernotes	2915	
+OpenRefine;8164	
+serenata-de-amor;4283	
+airbyte;2952	
+danfojs;1464	
+flyte;1435	
+CodeSearchNet;1419	
+querido-diario;698	
+lets-plot;620	
+OpenSource-RoadMap-DataScience;446	
+DataCleaner;401	
+wptools;385	
+datmo;334	
+food-inspections-evaluation;318	
+oie-resources;300	
+Cryptocurrency-Analysis-Python;292	
+open-quant-live-book;279	
+apd-core;270	
+climate-change-data;217	
+scihub;214	
+lets-plot-kotlin;200	
+data-science-live-book;195	
+dstack;182	
+open-solution-data-science-bowl-2018;158	
+spark-alchemy;136	
+telemetry;82	
+openml-r;82	
+classifai;78	
+meteostat-python;58	
+covid19africa;47	
+kuwala;46	
+novedejulho;35	
+open-geo-data-education;33	
+ml-ai;32	
+iati.cloud;31	
+openstreetmap-data-science;28	
+covid19-map;27	
+datascience;27	
+fraud-detection-handbook;26	
+Open-Data-Lab;24	
+data-science-notes;23	
+magicbox-open-api;23	
+Uber-Data-Analysis;21	
+open-datasets;21	
+events;21	
+open-data-bikes-analysis;19	
+aurora;18	
+jitenshea;17	
+r-collaboration;17	
+data-science-indonesia-bootcamp-2016;17	
+skdata;16	
+fossos;15	
+awesome-open-science;14	
+awesome-climate-data;14	
+Datscan;13	
+geebook;13	
+HiggsExample20112012;12	
+open-solution-talking-data;11	
+canwqdata;11	
+broadcast-research;11	
+magicbox-maps;10	
+whyqd;10	
+Helsinki-Open-Data-Science;9	
+dados-pb;9	
+awesome-italian-public-datasets;8	
+public-data;8	
+suricate;7	
+dataphile;7	
+radlquartier;7	
+rubrix;7	
+istacpy;7	
+govpack;7	
+21W-UP206A;6	
+BCG;6	
+darkgreybox;6	
+dev;5	
+Scrap.py;5	
+atmdata;5	
+istacr;5	
+open-engine-data;4	
+caracterizacao-dados-abertos-gov;4	
+corporateZ;4	
+raspagem-sefaz;4	
+awesome-city-data;4	
+rds-r;4	
+rds-js;4	
+datasets;3	
+betterGrow;3	
+OpenDATUM;3	
+opendata-example;3	
+openpdi;3	
+london-olympics-disparate-impact;3	
+rds-js-examples;3	
+Ukuli-Tulevaisuus-Site;3	
+ecommerce-peru-scrap-cli;3	
+arcadia;3	
+querido-diario-php;3	
+predictive-maintenance;3	
+datascience-course;2	
+mflux-ai-tutorials;2	
+open-dataset;2	
+keras	51261	
+scikit-learn	45953	
+superset	38768	
+MadeWithML	25849	
+Probabilistic-Programming-and-Bayesian-Methods-for-Hackers	23090	
+data-science-ipython-notebooks	21151	
+spaCy	20559	
+ML-From-Scratch	19912	
+ray	16104	
+awesome-datascience	15890	
+ipython	14816	
+streamlit	14682	
+dash	14601	
+matplotlib	13700	
+pytorch-lightning	13692	
+Virgilio	13058	
+fastbook	12508	
+AI-Expert-Roadmap	12214	
+stanford-cs-229-machine-learning	12117	
+gensim	12110	
+Awesome-pytorch-list	11873	
+python-machine-learning-book	11218	
+dive-into-machine-learning	10545	
+applied-ml	10305	
+allennlp	10062	
+recommenders	9986	
+awesome-bigdata	9969	
+d2l-en	9961	
+nni	9700	
+tflearn	9537	
+mit-deep-learning	8558	
+seaborn	8459	
+OpenRefine	8164	
+tpot	8032	
+dvc	7984	
+numerical-linear-algebra	7918	
+computervision-recipes	7751	
+mlcourse.ai	7656	
+pandas-profiling	7393	
+prefect	6357	
+python-machine-learning-book-2nd-edition	6309	
+python-small-examples	6135	
+machine_learning_examples	6127	
+industry-machine-learning	5922	
+catboost	5881	
+roughViz	5790	
+tsfresh	5669	
+featuretools	5580	
+amazon-sagemaker-examples	5553	
+nteract	5550	
+data-science-blogs	5507	
+boltons	5470	
+h2o-3	5360	
+smile	5267	
+imbalanced-learn	5258	
+best-of-ml-python	5256	
+pachyderm	5075	
+Data-Analysis-and-Machine-Learning-Projects	5027	
+gop	4945	
+stanford-cs-230-deep-learning	4889	
+awesome-mlops	4796	
+knowledge-repo	4776	
+course-v3	4731	
+machine-learning-roadmap	4687	
+cookiecutter-data-science	4662	
+snorkel	4639	
+edward	4638	
+awesome-R	4622	
+Learn-Data-Science-For-Free	4598	
+pyod	4542	
+great_expectations	4476	
+metaflow	4388	
+serenata-de-amor	4283	
+DataSciencePython	4279	
+data-science-interviews	4184	
+machine-learning-for-trading	4122	
+sktime	4026	
+hydrogen	3707	
+d2l-pytorch	3691	
+akshare	3570	
+pycaret	3506	
+mlxtend	3500	
+Ai-Learn	3473	
+learning	3412	
+dagster	3389	
+trino	3382	
+autogluon	3334	
+probability	3326	
+Hub	3272	
+scikit-learn-videos	3128	
+tensorwatch	3102	
+telegram-list	3077	
+spark-notebook	3032	
+data-science-at-the-command-line	3025	
+Flux.jl	3022	
+airbyte	2952	
+dowhy	2948	
+chartify	2923	
+r4ds	2918	
+gophernotes	2915	
+keras	51261	
+scikit-learn	45953	
+superset	38768	
+MadeWithML	25849	
+Probabilistic-Programming-and-Bayesian-Methods-for-Hackers	23090	
+data-science-ipython-notebooks	21151	
+spaCy	20559	
+ML-From-Scratch	19912	
+ray	16104	
+awesome-datascience	15890	
+ipython	14816	
+streamlit	14682	
+dash	14601	
+matplotlib	13700	
+pytorch-lightning	13692	
+Virgilio	13058	
+fastbook	12508	
+AI-Expert-Roadmap	12214	
+stanford-cs-229-machine-learning	12117	
+gensim	12110	
+Awesome-pytorch-list	11873	
+python-machine-learning-book	11218	
+dive-into-machine-learning	10545	
+applied-ml	10305	
+allennlp	10062	
+recommenders	9986	
+awesome-bigdata	9969	
+d2l-en	9961	
+nni	9700	
+tflearn	9537	
+mit-deep-learning	8558	
+seaborn	8459	
+OpenRefine	8164	
+tpot	8032	
+dvc	7984	
+numerical-linear-algebra	7918	
+computervision-recipes	7751	
+mlcourse.ai	7656	
+pandas-profiling	7393	
+prefect	6357	
+python-machine-learning-book-2nd-edition	6309	
+python-small-examples	6135	
+machine_learning_examples	6127	
+industry-machine-learning	5922	
+catboost	5881	
+roughViz	5790	
+tsfresh	5669	
+featuretools	5580	
+amazon-sagemaker-examples	5553	
+nteract	5550	
+data-science-blogs	5507	
+boltons	5470	
+h2o-3	5360	
+smile	5267	
+imbalanced-learn	5258	
+best-of-ml-python	5256	
+pachyderm	5075	
+Data-Analysis-and-Machine-Learning-Projects	5027	
+gop	4945	
+stanford-cs-230-deep-learning	4889	
+awesome-mlops	4796	
+knowledge-repo	4776	
+course-v3	4731	
+machine-learning-roadmap	4687	
+cookiecutter-data-science	4662	
+snorkel	4639	
+edward	4638	
+awesome-R	4622	
+Learn-Data-Science-For-Free	4598	
+pyod	4542	
+great_expectations	4476	
+metaflow	4388	
+serenata-de-amor	4283	
+DataSciencePython	4279	
+data-science-interviews	4184	
+machine-learning-for-trading	4122	
+sktime	4026	
+hydrogen	3707	
+d2l-pytorch	3691	
+akshare	3570	
+pycaret	3506	
+mlxtend	3500	
+Ai-Learn	3473	
+learning	3412	
+dagster	3389	
+trino	3382	
+autogluon	3334	
+probability	3326	
+Hub	3272	
+scikit-learn-videos	3128	
+tensorwatch	3102	
+telegram-list	3077	
+spark-notebook	3032	
+data-science-at-the-command-line	3025	
+Flux.jl	3022	
+airbyte	2952	
+dowhy	2948	
+chartify	2923	
+r4ds	2918	
+gophernotes	2915	
+OpenRefine;8164	
+serenata-de-amor;4283	
+airbyte;2952	
+danfojs;1464	
+flyte;1435	
+CodeSearchNet;1419	
+querido-diario;698	
+lets-plot;620	
+OpenSource-RoadMap-DataScience;446	
+DataCleaner;401	
+wptools;385	
+datmo;334	
+food-inspections-evaluation;318	
+oie-resources;300	
+Cryptocurrency-Analysis-Python;292	
+open-quant-live-book;279	
+apd-core;270	
+climate-change-data;217	
+scihub;214	
+lets-plot-kotlin;200	
+data-science-live-book;195	
+dstack;182	
+open-solution-data-science-bowl-2018;158	
+spark-alchemy;136	
+telemetry;82	
+openml-r;82	
+classifai;78	
+meteostat-python;58	
+covid19africa;47	
+kuwala;46	
+novedejulho;35	
+open-geo-data-education;33	
+ml-ai;32	
+iati.cloud;31	
+openstreetmap-data-science;28	
+covid19-map;27	
+datascience;27	
+fraud-detection-handbook;26	
+Open-Data-Lab;24	
+data-science-notes;23	
+magicbox-open-api;23	
+Uber-Data-Analysis;21	
+open-datasets;21	
+events;21	
+open-data-bikes-analysis;19	
+aurora;18	
+jitenshea;17	
+r-collaboration;17	
+data-science-indonesia-bootcamp-2016;17	
+skdata;16	
+fossos;15	
+awesome-open-science;14	
+awesome-climate-data;14	
+Datscan;13	
+geebook;13	
+HiggsExample20112012;12	
+open-solution-talking-data;11	
+canwqdata;11	
+broadcast-research;11	
+magicbox-maps;10	
+whyqd;10	
+Helsinki-Open-Data-Science;9	
+dados-pb;9	
+awesome-italian-public-datasets;8	
+public-data;8	
+suricate;7	
+dataphile;7	
+radlquartier;7	
+rubrix;7	
+istacpy;7	
+govpack;7	
+21W-UP206A;6	
+BCG;6	
+darkgreybox;6	
+dev;5	
+Scrap.py;5	
+atmdata;5	
+istacr;5	
+open-engine-data;4	
+caracterizacao-dados-abertos-gov;4	
+corporateZ;4	
+raspagem-sefaz;4	
+awesome-city-data;4	
+rds-r;4	
+rds-js;4	
+datasets;3	
+betterGrow;3	
+OpenDATUM;3	
+opendata-example;3	
+openpdi;3	
+london-olympics-disparate-impact;3	
+rds-js-examples;3	
+Ukuli-Tulevaisuus-Site;3	
+ecommerce-peru-scrap-cli;3	
+arcadia;3	
+querido-diario-php;3	
+predictive-maintenance;3	
+datascience-course;2	
+mflux-ai-tutorials;2	
+open-dataset;2	
+keras	51261	
+scikit-learn	45953	
+superset	38768	
+MadeWithML	25849	
+Probabilistic-Programming-and-Bayesian-Methods-for-Hackers	23090	
+data-science-ipython-notebooks	21151	
+spaCy	20559	
+ML-From-Scratch	19912	
+ray	16104	
+awesome-datascience	15890	
+ipython	14816	
+streamlit	14682	
+dash	14601	
+matplotlib	13700	
+pytorch-lightning	13692	
+Virgilio	13058	
+fastbook	12508	
+AI-Expert-Roadmap	12214	
+stanford-cs-229-machine-learning	12117	
+gensim	12110	
+Awesome-pytorch-list	11873	
+python-machine-learning-book	11218	
+dive-into-machine-learning	10545	
+applied-ml	10305	
+allennlp	10062	
+recommenders	9986	
+awesome-bigdata	9969	
+d2l-en	9961	
+nni	9700	
+tflearn	9537	
+mit-deep-learning	8558	
+seaborn	8459	
+OpenRefine	8164	
+tpot	8032	
+dvc	7984	
+numerical-linear-algebra	7918	
+computervision-recipes	7751	
+mlcourse.ai	7656	
+pandas-profiling	7393	
+prefect	6357	
+python-machine-learning-book-2nd-edition	6309	
+python-small-examples	6135	
+machine_learning_examples	6127	
+industry-machine-learning	5922	
+catboost	5881	
+roughViz	5790	
+tsfresh	5669	
+featuretools	5580	
+amazon-sagemaker-examples	5553	
+nteract	5550	
+data-science-blogs	5507	
+boltons	5470	
+h2o-3	5360	
+smile	5267	
+imbalanced-learn	5258	
+best-of-ml-python	5256	
+pachyderm	5075	
+Data-Analysis-and-Machine-Learning-Projects	5027	
+gop	4945	
+stanford-cs-230-deep-learning	4889	
+awesome-mlops	4796	
+knowledge-repo	4776	
+course-v3	4731	
+machine-learning-roadmap	4687	
+cookiecutter-data-science	4662	
+snorkel	4639	
+edward	4638	
+awesome-R	4622	
+Learn-Data-Science-For-Free	4598	
+pyod	4542	
+great_expectations	4476	
+metaflow	4388	
+serenata-de-amor	4283	
+DataSciencePython	4279	
+data-science-interviews	4184	
+machine-learning-for-trading	4122	
+sktime	4026	
+hydrogen	3707	
+d2l-pytorch	3691	
+akshare	3570	
+pycaret	3506	
+mlxtend	3500	
+Ai-Learn	3473	
+learning	3412	
+dagster	3389	
+trino	3382	
+autogluon	3334	
+probability	3326	
+Hub	3272	
+scikit-learn-videos	3128	
+tensorwatch	3102	
+telegram-list	3077	
+spark-notebook	3032	
+data-science-at-the-command-line	3025	
+Flux.jl	3022	
+airbyte	2952	
+dowhy	2948	
+chartify	2923	
+r4ds	2918	
+gophernotes	2915	
+keras	51261	
+scikit-learn	45953	
+superset	38768	
+MadeWithML	25849	
+Probabilistic-Programming-and-Bayesian-Methods-for-Hackers	23090	
+data-science-ipython-notebooks	21151	
+spaCy	20559	
+ML-From-Scratch	19912	
+ray	16104	
+awesome-datascience	15890	
+ipython	14816	
+streamlit	14682	
+dash	14601	
+matplotlib	13700	
+pytorch-lightning	13692	
+Virgilio	13058	
+fastbook	12508	
+AI-Expert-Roadmap	12214	
+stanford-cs-229-machine-learning	12117	
+gensim	12110	
+Awesome-pytorch-list	11873	
+python-machine-learning-book	11218	
+dive-into-machine-learning	10545	
+applied-ml	10305	
+allennlp	10062	
+recommenders	9986	
+awesome-bigdata	9969	
+d2l-en	9961	
+nni	9700	
+tflearn	9537	
+mit-deep-learning	8558	
+seaborn	8459	
+OpenRefine	8164	
+tpot	8032	
+dvc	7984	
+numerical-linear-algebra	7918	
+computervision-recipes	7751	
+mlcourse.ai	7656	
+pandas-profiling	7393	
+prefect	6357	
+python-machine-learning-book-2nd-edition	6309	
+python-small-examples	6135	
+machine_learning_examples	6127	
+industry-machine-learning	5922	
+catboost	5881	
+roughViz	5790	
+tsfresh	5669	
+featuretools	5580	
+amazon-sagemaker-examples	5553	
+nteract	5550	
+data-science-blogs	5507	
+boltons	5470	
+h2o-3	5360	
+smile	5267	
+imbalanced-learn	5258	
+best-of-ml-python	5256	
+pachyderm	5075	
+Data-Analysis-and-Machine-Learning-Projects	5027	
+gop	4945	
+stanford-cs-230-deep-learning	4889	
+awesome-mlops	4796	
+knowledge-repo	4776	
+course-v3	4731	
+machine-learning-roadmap	4687	
+cookiecutter-data-science	4662	
+snorkel	4639	
+edward	4638	
+awesome-R	4622	
+Learn-Data-Science-For-Free	4598	
+pyod	4542	
+great_expectations	4476	
+metaflow	4388	
+serenata-de-amor	4283	
+DataSciencePython	4279	
+data-science-interviews	4184	
+machine-learning-for-trading	4122	
+sktime	4026	
+hydrogen	3707	
+d2l-pytorch	3691	
+akshare	3570	
+pycaret	3506	
+mlxtend	3500	
+Ai-Learn	3473	
+learning	3412	
+dagster	3389	
+trino	3382	
+autogluon	3334	
+probability	3326	
+Hub	3272	
+scikit-learn-videos	3128	
+tensorwatch	3102	
+telegram-list	3077	
+spark-notebook	3032	
+data-science-at-the-command-line	3025	
+Flux.jl	3022	
+airbyte	2952	
+dowhy	2948	
+chartify	2923	
+r4ds	2918	
+gophernotes	2915	
+OpenRefine;8164	
+serenata-de-amor;4283	
+airbyte;2952	
+danfojs;1464	
+flyte;1435	
+CodeSearchNet;1419	
+querido-diario;698	
+lets-plot;620	
+OpenSource-RoadMap-DataScience;446	
+DataCleaner;401	
+wptools;385	
+datmo;334	
+food-inspections-evaluation;318	
+oie-resources;300	
+Cryptocurrency-Analysis-Python;292	
+open-quant-live-book;279	
+apd-core;270	
+climate-change-data;217	
+scihub;214	
+lets-plot-kotlin;200	
+data-science-live-book;195	
+dstack;182	
+open-solution-data-science-bowl-2018;158	
+spark-alchemy;136	
+telemetry;82	
+openml-r;82	
+classifai;78	
+meteostat-python;58	
+covid19africa;47	
+kuwala;46	
+novedejulho;35	
+open-geo-data-education;33	
+ml-ai;32	
+iati.cloud;31	
+openstreetmap-data-science;28	
+covid19-map;27	
+datascience;27	
+fraud-detection-handbook;26	
+Open-Data-Lab;24	
+data-science-notes;23	
+magicbox-open-api;23	
+Uber-Data-Analysis;21	
+open-datasets;21	
+events;21	
+open-data-bikes-analysis;19	
+aurora;18	
+jitenshea;17	
+r-collaboration;17	
+data-science-indonesia-bootcamp-2016;17	
+skdata;16	
+fossos;15	
+awesome-open-science;14	
+awesome-climate-data;14	
+Datscan;13	
+geebook;13	
+HiggsExample20112012;12	
+open-solution-talking-data;11	
+canwqdata;11	
+broadcast-research;11	
+magicbox-maps;10	
+whyqd;10	
+Helsinki-Open-Data-Science;9	
+dados-pb;9	
+awesome-italian-public-datasets;8	
+public-data;8	
+suricate;7	
+dataphile;7	
+radlquartier;7	
+rubrix;7	
+istacpy;7	
+govpack;7	
+21W-UP206A;6	
+BCG;6	
+darkgreybox;6	
+dev;5	
+Scrap.py;5	
+atmdata;5	
+istacr;5	
+open-engine-data;4	
+caracterizacao-dados-abertos-gov;4	
+corporateZ;4	
+raspagem-sefaz;4	
+awesome-city-data;4	
+rds-r;4	
+rds-js;4	
+datasets;3	
+betterGrow;3	
+OpenDATUM;3	
+opendata-example;3	
+openpdi;3	
+london-olympics-disparate-impact;3	
+rds-js-examples;3	
+Ukuli-Tulevaisuus-Site;3	
+ecommerce-peru-scrap-cli;3	
+arcadia;3	
+querido-diario-php;3	
+predictive-maintenance;3	
+datascience-course;2	
+mflux-ai-tutorials;2	
+open-dataset;2	
+OpenRefine;8164	
+serenata-de-amor;4283	
+airbyte;2952	
+danfojs;1464	
+flyte;1435	
+CodeSearchNet;1419	
+querido-diario;698	
+lets-plot;620	
+OpenSource-RoadMap-DataScience;446	
+DataCleaner;401	
+wptools;385	
+datmo;334	
+food-inspections-evaluation;318	
+oie-resources;300	
+Cryptocurrency-Analysis-Python;292	
+open-quant-live-book;279	
+apd-core;270	
+climate-change-data;217	
+scihub;214	
+lets-plot-kotlin;200	
+data-science-live-book;195	
+dstack;182	
+open-solution-data-science-bowl-2018;158	
+spark-alchemy;136	
+telemetry;82	
+openml-r;82	
+classifai;78	
+meteostat-python;58	
+covid19africa;47	
+kuwala;46	
+novedejulho;35	
+open-geo-data-education;33	
+ml-ai;32	
+iati.cloud;31	
+openstreetmap-data-science;28	
+covid19-map;27	
+datascience;27	
+fraud-detection-handbook;26	
+Open-Data-Lab;24	
+data-science-notes;23	
+magicbox-open-api;23	
+Uber-Data-Analysis;21	
+open-datasets;21	
+events;21	
+open-data-bikes-analysis;19	
+aurora;18	
+jitenshea;17	
+r-collaboration;17	
+data-science-indonesia-bootcamp-2016;17	
+skdata;16	
+fossos;15	
+awesome-open-science;14	
+awesome-climate-data;14	
+Datscan;13	
+geebook;13	
+HiggsExample20112012;12	
+open-solution-talking-data;11	
+canwqdata;11	
+broadcast-research;11	
+magicbox-maps;10	
+whyqd;10	
+Helsinki-Open-Data-Science;9	
+dados-pb;9	
+awesome-italian-public-datasets;8	
+public-data;8	
+suricate;7	
+dataphile;7	
+radlquartier;7	
+rubrix;7	
+istacpy;7	
+govpack;7	
+21W-UP206A;6	
+BCG;6	
+darkgreybox;6	
+dev;5	
+Scrap.py;5	
+atmdata;5	
+istacr;5	
+open-engine-data;4	
+caracterizacao-dados-abertos-gov;4	
+corporateZ;4	
+raspagem-sefaz;4	
+awesome-city-data;4	
+rds-r;4	
+rds-js;4	
+datasets;3	
+betterGrow;3	
+OpenDATUM;3	
+opendata-example;3	
+openpdi;3	
+london-olympics-disparate-impact;3	
+rds-js-examples;3	
+Ukuli-Tulevaisuus-Site;3	
+ecommerce-peru-scrap-cli;3	
+arcadia;3	
+querido-diario-php;3	
+predictive-maintenance;3	
+datascience-course;2	
+mflux-ai-tutorials;2	
+open-dataset;2	
