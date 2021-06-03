@@ -42,6 +42,10 @@ def gravar_arquivo_json(nome_arquivo, dados):
     with open(nome_arquivo, 'w', encoding='utf-8') as f:
         json.dump(dados, f, ensure_ascii=False, indent=2, sort_keys=False, separators=(',' , ':'))
 
+def ler_arquivo_json(nome_arquivo):
+    with open(nome_arquivo, 'r', encoding='utf8') as f:
+        return json.load(f)
+
 #================================================================================#
 # MAIN                                                                           #
 #================================================================================#
@@ -56,10 +60,12 @@ lista_repos = monta_lista_repos_topico(topico)
 # Monta um json com tópico e lista de repositórios
 registro_json           = {}
 registro_json['topico'] = topico
-registro_json['item']   = lista_repos
-registro_json_1 = json.dumps(registro_json, indent=2, sort_keys=False)
 
-print(registro_json_1)
+registro_json['items']  = lista_repos
+arquivo_json            = registro_json
 
 # Grava json
-gravar_arquivo_json(nome_arquivo, registro_json_1)
+gravar_arquivo_json(nome_arquivo, arquivo_json)
+
+# Leitura json
+json_leitura = ler_arquivo_json(nome_arquivo)
