@@ -15,12 +15,12 @@ def requisicao_url(url):
     dados_api = requisicao_api(url)
     return dados_api
 
-def monta_lista_repos_topico(lista_registros, topico,estrelas):    
+def monta_lista_repos_topico(lista_registros, topico, timestamp):    
     global fim 
     # Percorre os 1000 primeiros registros, ou seja, 10 páginas de 100 registros.
     for x in range(1,11):
-        urlprincipal = f'https://api.github.com/search/repositories?q=topic:{str(topico)}+stars:<={str(estrelas)}&sort=stars&order=desc&page={str(x)}&per_page=100' 
-
+        urlprincipal = f'https://api.github.com/search/repositories?q=topic:{str(topico)}+pushed:<{str(timestamp)}&sort=pushed&order=desc&page={str(x)}&per_page=100' 
+        
         dados_api = requisicao_url(urlprincipal)    
 
         if type(dados_api) is int: # Caso ocorra algum erro. Sai do loop e retorna lista vazia
@@ -43,7 +43,6 @@ def monta_lista_repos_topico(lista_registros, topico,estrelas):
                     lista_registros.append(items[i])
         
     return(lista_registros)
-
 
 
 def gravar_arquivo_json(nome_arquivo, dados):
@@ -79,7 +78,7 @@ nome_arquivo = "opendata.json"
 
 
 lista_registros = []
-estrelas = 999999999
+timestamp = '2970-12-31T23:59:59Z'
 
 sair = 0
 
@@ -87,16 +86,16 @@ while sair != 1:
     sleep(60)
 
     # Monta uma lista com os repositórios do tópico
-    lista_repos = monta_lista_repos_topico(lista_registros,topico,estrelas)
+    lista_repos = monta_lista_repos_topico(lista_registros,topico,timestamp)
 
     if fim == 1:
         sair = 1
     else:
         ultimo_registro = lista_repos[len(lista_repos) - 1]
     
-        estrelas = ultimo_registro['stargazers_count']
+        timestamp = ultimo_registro['pushed_at']
 
-        print(estrelas)
+        print(timestamp)
 
 print(len(lista_repos))
 
