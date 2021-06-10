@@ -13,29 +13,48 @@ def requisicao_url(url):
     dados_api = requisicao_api(url)
     return dados_api
 
-def monta_lista_repos_topico(topico):
+def monta_quesitos_palavras_chave(lista_palavras_chaves):
+    texto_quesitos = ''
+
+    for x in range(len(lista_palavras_chaves)):
+        if str(texto_quesitos) == '':
+            texto_quesitos = str(lista_palavras_chaves[x]['palavra-chave']) + ':' + lista_palavras_chaves[x]['valor-palavra-chave']
+        else:
+            texto_quesitos = str(lista_palavras_chaves[x]['palavra-chave']) + ':' + lista_palavras_chaves[x]['valor-palavra-chave'] + '+' + str(texto_quesitos)
+    
+    return texto_quesitos
+
+def monta_lista_repos_topico(quesito_pesquisa,lista_palavras_chave):
     lista_registros = []
     
     # Percorre os 1000 primeiros registros, ou seja, 10 páginas de 100 registros.
     for x in range(1,11):
-        urlprincipal = f'https://api.github.com/search/repositories?q=topic:{str(topico)}&sort=stars&order=desc&page={str(x)}&per_page=100' 
+        urlprincipal = f'https://api.github.com/search/repositories?q={str(quesito_pesquisa)}&sort=stars&order=desc&page={str(x)}&per_page=100' 
 
         dados_api = requisicao_url(urlprincipal)    
 
-        if type(dados_api) is int: # Caso ocorra algum erro. Sai do loop e retorna lista vazia
+        if type(dados_api) is int: # Caso ocorra algum erro, finaliza busca
             print("Erro: " + str(dados_api))
             break
         else:
-            #Pega os repositórios no item e insere em uma lista
             print("Página: " + str(x))
             print(urlprincipal)
 
             items = dados_api['items']
-    
-            for i in range(len(items)):
-                lista_topicos = [topico]
-                items[i]['lista_topicos'] = lista_topicos
-                lista_registros.append(items[i])
+            
+            if len(items) == 0: #Verifica se lista está vazia e finaliza busca
+                break
+            else:
+                #Pega os repositórios no item e insere em uma lista
+                for i in range(len(items)):
+                    lista_topicos = []
+
+                    for y in range(len(lista_palavras_chave)): # Inclui na lista de tópicos somente os valores de palavras chaves de topico
+                        if lista_palavras_chave[y]['palavra-chave'] == 'topic':
+                            lista_topicos.append(lista_palavras_chave[y]['valor-palavra-chave'])
+
+                    items[i]['lista_topicos'] = lista_topicos
+                    lista_registros.append(items[i])
         
     return(lista_registros)
 
@@ -53,22 +72,35 @@ def ler_arquivo_json(nome_arquivo):
 #================================================================================#
 print("Deseja pesquisar por quais quesitos (palavras-chave):")
 
-#fim_palavras_chave = 0
-#y = 'N'
-#lista_palavras_chave = []
+fim_palavras_chave = 'S'
+y = 0
+lista_palavras_chave = []
 
-#while fim_palavras_chave == 'N': 
-#    y = y + 1
-#    print(y + "ª palavra-chave: ")
-#    lista_palavras_chave[y]= input()
-#    print("Valor da " +  y + "ª palavra-chave: ")
-#
-#    print("Deseja continuar (S,N): ")
+while fim_palavras_chave == 'S': 
+    y = y + 1
+    palavra_chave = {}
+    
+    print(f'{str(y)}ª palavra-chave: ')
+    palavra_chave['palavra-chave'] = input()
 
+    print(f'Valor da {str(y)}ª palavra-chave: ')
+    palavra_chave['valor-palavra-chave'] = input()
 
-topico = 'opendata'
+    lista_palavras_chave.append(palavra_chave)
+
+    print("Deseja continuar (S,N): ")
+    fim_palavras_chave = input()
+
+    while fim_palavras_chave != 'N' and fim_palavras_chave != 'S':
+        print("Erro ! - Informar S ou N !")
+        print("Deseja continuar (S,N): ")
+        fim_palavras_chave = input()
+
+# Monta quesito de pesquisa com as palavras chaves indicadas
+quesito_pesquisa = monta_quesitos_palavras_chave(lista_palavras_chave)
+
 # Monta uma lista com os repositórios do tópico
-lista_repos = monta_lista_repos_topico(topico)
+lista_repos = monta_lista_repos_topico(quesito_pesquisa,lista_palavras_chave)
 
 # Monta um json com tópico e lista de repositórios
 registro_json           = {}
@@ -78,7 +110,7 @@ arquivo_json            = registro_json
 
 data_hora_atual = datetime.now()
 
-nome_arquivo = str(topico) + "-" + str(data_hora_atual) + ".json" 
+nome_arquivo = str(quesito_pesquisa) + "-" + str(data_hora_atual) + ".json" 
 
 # Grava json
 gravar_arquivo_json(nome_arquivo, arquivo_json)

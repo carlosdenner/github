@@ -11,6 +11,10 @@ def busca_registro_no_arquivo(arquivo,registro):
     
     return False
 
+# Verifica se o topico já existe no registro da base de dados
+# Caso exista     -> Não faz nada
+# Caso não exista -> inclui
+#
 def formata_lista_topicos(lista_principal, lista_secundaria):
     tamanho_lista_principal = range(len(lista_principal))
 
@@ -37,11 +41,14 @@ def inclui_arquivo_na_base_dados(arquivo):
     global nome_base_dados 
     arquivo_json = {}
 
-    if arquivo_json_existe(nome_base_dados):
+    if arquivo_json_existe(nome_base_dados): # Verifica se base de dados já existe
         base_dados_json = ler_arquivo_json(nome_base_dados)
 
         base_dados = base_dados_json['items']
 
+        # Percorre arquivo que sera incluido na base de dados
+        # Caso registro exista     -> Atualiza
+        # Caso registro não exista -> Inclui no final
         for x in range(len(arquivo)):
             resultado = busca_registro_no_arquivo(base_dados,arquivo[x])
             if type(resultado) is int:
@@ -56,6 +63,7 @@ def inclui_arquivo_na_base_dados(arquivo):
         arquivo_json['items'] = arquivo
         
     gravar_arquivo_json(nome_base_dados,arquivo_json)
+    
     return 0
         
 
