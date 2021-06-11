@@ -6,7 +6,7 @@ def ler_arquivo_json(nome_arquivo):
     with open(nome_arquivo, 'r', encoding='utf8') as f:
         return json.load(f)
 
-# Seleciona determinados registros do arquivo de entrada
+# Seleciona determinados campos do registro do arquivo de entrada
 def seleciona_informacoes_repositorio_json(arquivo):
     lista = []
 
