@@ -1,6 +1,6 @@
 # LEVANTAMENTO DE DADOS GITHUB
 
-## Processos para acessar dados do Github utilizando a API de REST do GitHub. Esses dados vão servir como base para realizar análises de fins acadêmicos.
+## Processos para acessar dados do Github utilizando a API de REST do GitHub. Esses dados servirão como base para realizar análises de fins acadêmicos.
 
 ### Pré-requisitos
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: 
