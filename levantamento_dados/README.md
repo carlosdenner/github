@@ -33,12 +33,14 @@ $ cd levantamento_dados
 ### Módulos
 
 #### Módulos para acessar repositórios do Github:
-
+- consulta_repositorios.py: recebe como entrada as palavras-chave que deseja pesquisa e seus respectivos valores. Exemplo: Deseja pesquisa repositórios com o tópico open-data, então deve ser informado palavra-chave = topic e valor palavra-chave = open-data. Sua saída é um arquivo JSON com o seguinte formato: palavras-chave:valor palavra-chave-timestamp.json (topic:open-data-2021-06-12 21:21:29.719105.json).
+- 
 
 ### 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Python3](https://www.python.org/)
+- [JSON](https://www.json.org/json-en.html)
 
 
