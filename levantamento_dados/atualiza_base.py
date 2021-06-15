@@ -52,7 +52,6 @@ def inclui_arquivo_na_base_dados(arquivo):
         for x in range(len(arquivo)):
             resultado = busca_registro_no_arquivo(base_dados,arquivo[x])
             if type(resultado) is int:
-                print(arquivo[x]['id'])
                 arquivo[x]['lista_topicos'] = formata_lista_topicos(base_dados[resultado]['lista_topicos'], arquivo[x]['lista_topicos'])
                 base_dados[resultado] = arquivo[x]
             else:
