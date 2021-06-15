@@ -1,6 +1,8 @@
 import requests
 import json
 from datetime import datetime
+from datetime import date
+import time
 
 def requisicao_api(url):
     resposta = requests.get(url)
@@ -63,10 +65,6 @@ def gravar_arquivo_json(nome_arquivo, dados):
     with open(nome_arquivo, 'w', encoding='utf-8') as f:
         json.dump(dados, f, ensure_ascii=False, indent=2, sort_keys=False, separators=(',' , ':'))
 
-def ler_arquivo_json(nome_arquivo):
-    with open(nome_arquivo, 'r', encoding='utf8') as f:
-        return json.load(f)
-
 #================================================================================#
 # MAIN                                                                           #
 #================================================================================#
@@ -108,12 +106,10 @@ registro_json           = {}
 registro_json['items']  = lista_repos
 arquivo_json            = registro_json
 
-data_hora_atual = datetime.now()
+# Busca data e hora atual
+data_hora_atual = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
 
-nome_arquivo = str(quesito_pesquisa) + "-" + str(data_hora_atual) + ".json" 
+nome_arquivo = f'{str(quesito_pesquisa)}-{str(data_hora_atual)}.json' 
 
 # Grava json
 gravar_arquivo_json(nome_arquivo, arquivo_json)
-
-# Leitura json
-json_leitura = ler_arquivo_json(nome_arquivo)
