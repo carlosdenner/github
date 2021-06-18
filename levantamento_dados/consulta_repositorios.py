@@ -1,8 +1,6 @@
 import requests
 import json
 from datetime import datetime
-from datetime import date
-import time
 
 def requisicao_api(url):
     resposta = requests.get(url)
