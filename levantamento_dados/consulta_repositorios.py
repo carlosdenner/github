@@ -77,10 +77,10 @@ while fim_palavras_chave == 'S':
     palavra_chave = {}
     
     print(f'{str(y)}ª palavra-chave: ')
-    palavra_chave['palavra-chave'] = input()
+    palavra_chave['palavra-chave'] = input().replace(" ","").lower() 
 
     print(f'Valor da {str(y)}ª palavra-chave: ')
-    palavra_chave['valor-palavra-chave'] = input()
+    palavra_chave['valor-palavra-chave'] = input().replace(" ","").lower() 
 
     lista_palavras_chave.append(palavra_chave)
 
