@@ -1,8 +1,6 @@
 import requests
 import json
 from datetime import datetime
-from datetime import date
-import time
 
 def requisicao_api(url):
     resposta = requests.get(url)
@@ -82,7 +80,7 @@ while fim_palavras_chave == 'S':
     palavra_chave['palavra-chave'] = input()
 
     print(f'Valor da {str(y)}ª palavra-chave: ')
-    palavra_chave['valor-palavra-chave'] = input()
+    palavra_chave['valor-palavra-chave'] = input().replace(" ", "") # Não deixa gerar valores com espaços
 
     lista_palavras_chave.append(palavra_chave)
 
