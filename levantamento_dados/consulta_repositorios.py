@@ -46,13 +46,6 @@ def monta_lista_repos_topico(quesito_pesquisa,lista_palavras_chave):
             else:
                 #Pega os repositórios no item e insere em uma lista
                 for i in range(len(items)):
-                    lista_topicos = []
-
-                    for y in range(len(lista_palavras_chave)): # Inclui na lista de tópicos somente os valores de palavras chaves de topico
-                        if lista_palavras_chave[y]['palavra-chave'] == 'topic':
-                            lista_topicos.append(lista_palavras_chave[y]['valor-palavra-chave'])
-
-                    items[i]['lista_topicos'] = lista_topicos
                     lista_registros.append(items[i])
         
     return(lista_registros)
