@@ -1,17 +1,14 @@
 import requests
 import json
 from datetime import datetime
+import time 
 
-def requisicao_api(url):
-    resposta = requests.get(url)
+def requisicao_api(url,headers):
+    resposta = requests.get(url,headers=headers)
     if resposta.status_code == 200:
         return resposta.json()
     else:
         return resposta.status_code
-
-def requisicao_url(url):
-    dados_api = requisicao_api(url)
-    return dados_api
 
 def monta_quesitos_palavras_chave(lista_palavras_chaves):
     texto_quesitos = ''
@@ -31,7 +28,9 @@ def monta_lista_repos_topico(quesito_pesquisa,lista_palavras_chave):
     for x in range(1,11):
         urlprincipal = f'https://api.github.com/search/repositories?q={str(quesito_pesquisa)}&sort=stars&order=desc&page={str(x)}&per_page=100' 
 
-        dados_api = requisicao_url(urlprincipal)    
+        headers = {'Accept': 'application/vnd.github.mercy-preview+json', 'Accept-Charset': 'UTF-8'}
+
+        dados_api = requisicao_api(urlprincipal,headers)    
 
         if type(dados_api) is int: # Caso ocorra algum erro, finaliza busca
             print("Erro: " + str(dados_api))
@@ -58,6 +57,27 @@ def monta_lista_repos_topico(quesito_pesquisa,lista_palavras_chave):
         
     return(lista_registros)
 
+# Busca os 10 tópicos mais populares que tem a palavra data em algum de suas descrições
+def busca_exemplos_topicos():
+    url = "https://api.github.com/search/topics?q=data&page=1&per_page=10"
+
+    headers = {'Accept': 'application/vnd.github.mercy-preview+json', 'Accept-Charset': 'UTF-8'}
+
+    resultado = requisicao_api(url, headers) 
+
+    lista_topicos = resultado['items']
+
+    exemplos_topicos = ''
+
+    # Monta string de exemplos
+    for x in range(len(lista_topicos)):
+        if exemplos_topicos == '':
+           exemplos_topicos = str(lista_topicos[x]['name'])
+        else:
+            exemplos_topicos = exemplos_topicos + " , "  + str(lista_topicos[x]['name'])
+    
+    return exemplos_topicos
+
 
 def gravar_arquivo_json(nome_arquivo, dados):
     with open(nome_arquivo, 'w', encoding='utf-8') as f:
@@ -72,15 +92,22 @@ fim_palavras_chave = 'S'
 y = 0
 lista_palavras_chave = []
 
+exemplos_topicos = busca_exemplos_topicos()
+
+# Recebe todas as palavras-cheve e seus valores 
 while fim_palavras_chave == 'S': 
     y = y + 1
     palavra_chave = {}
     
     print(f'{str(y)}ª palavra-chave (Exemplo: topic): ')
-    palavra_chave['palavra-chave'] = input().replace(" ","").lower() 
+    palavra_chave['palavra-chave'] = input().replace(" ","").lower() # sempre deixa palavra-chave sem espaço e minuscula
 
-    print(f'Valor da {str(y)}ª palavra-chave (Exemplos: datascience, dataanalysis, opendata, machinelearning, etc): ')
-    palavra_chave['valor-palavra-chave'] = input().replace(" ","").lower() 
+    if (palavra_chave['palavra-chave'] == 'topic'):
+        print(f'Valor da {str(y)}ª palavra-chave (Exemplos: {exemplos_topicos}): ')
+    else:
+        print(f'Valor da {str(y)}ª palavra-chave: ')
+
+    palavra_chave['valor-palavra-chave'] = input().replace(" ","").lower() # sempre deixa valor palavra-chave sem espaço e minusculo
 
     lista_palavras_chave.append(palavra_chave)
 
@@ -91,6 +118,10 @@ while fim_palavras_chave == 'S':
         print("Erro ! - Informar S ou N !")
         print("Deseja continuar (S,N): ")
         fim_palavras_chave = input()
+
+# Espera 1 minuto para não ocorrer problemas nas requisiçõess
+print("Carregando... Espere 1 minuto.")
+time.sleep(60)
 
 # Monta quesito de pesquisa com as palavras chaves indicadas
 quesito_pesquisa = monta_quesitos_palavras_chave(lista_palavras_chave)
