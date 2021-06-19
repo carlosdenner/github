@@ -66,7 +66,7 @@ def gravar_arquivo_json(nome_arquivo, dados):
 #================================================================================#
 # MAIN                                                                           #
 #================================================================================#
-print("Deseja pesquisar por quais quesitos (palavras-chave):")
+print("Consulta Repositórios")
 
 fim_palavras_chave = 'S'
 y = 0
@@ -76,10 +76,10 @@ while fim_palavras_chave == 'S':
     y = y + 1
     palavra_chave = {}
     
-    print(f'{str(y)}ª palavra-chave: ')
+    print(f'{str(y)}ª palavra-chave (Exemplo: topic): ')
     palavra_chave['palavra-chave'] = input().replace(" ","").lower() 
 
-    print(f'Valor da {str(y)}ª palavra-chave: ')
+    print(f'Valor da {str(y)}ª palavra-chave (Exemplos: datascience, dataanalysis, opendata, machinelearning, etc): ')
     palavra_chave['valor-palavra-chave'] = input().replace(" ","").lower() 
 
     lista_palavras_chave.append(palavra_chave)
