@@ -1,0 +1,12 @@
+-- Buscar repositórios Python criados a partir de 2012 por ordem de número de estrelas
+
+SELECT p.id , p.name , p.url , p.created_at , w.num_watchers
+  FROM (SELECT id, name , url , created_at FROM `ghtorrentmysql1906.MySQL1906.projects` 
+ WHERE language = 'Python'
+   AND created_at >= '2012-02-01 00:00:00 UTC') p
+ INNER JOIN
+(SELECT repo_id, COUNT(DISTINCT user_id) AS num_watchers
+   FROM `ghtorrentmysql1906.MySQL1906.watchers` GROUP BY repo_id) w
+ON p.id = w.repo_id
+ORDER BY w.num_watchers DESC
+
