@@ -9,12 +9,17 @@ def requisicao_api(url,headers):
     else:
         return resposta.status_code
 
-def ler_arquivo_json(nome_arquivo):
+def ler_arquivo_json_tipo_1(nome_arquivo):
+    with open(nome_arquivo, 'r', encoding='utf8') as f:
+        return json.load(f)
+
+def ler_arquivo_json_tipo_2(nome_arquivo):
     lista_json = []
     for line in open(nome_arquivo, 'r', encoding='utf8'):
         lista_json.append(json.loads(line))
 
     return lista_json
+
 
 def gravar_arquivo_json(nome_arquivo, dados):
     with open(nome_arquivo, 'w', encoding='utf-8') as f:
@@ -48,13 +53,33 @@ def consulta_topicos(lista_repositorios):
 
     return lista_repositorios
 
+# Verifica se o repositorio está na base de dados json. Em caso positivo, atribui a lista de topicos.
+def consulta_topicos_base_de_dados_json(base_dados_json, arquivo_json):
+    arquivo_json_topicos = []
 
+    for i in range(len(arquivo_json)):
+        for x in range(len(base_dados_json)):
+            if arquivo_json[i]['url'] == base_dados_json[x]['url']:
+                arquivo_json[i]['list_topics'] = base_dados_json[x]['topics']
+                arquivo_json_topicos.append(arquivo_json[i])
+                break
+    
+    return arquivo_json_topicos
+
+        
+#================================================================================#
+# MAIN                                                                           #
+#================================================================================#
+
+nome_base_dados = "base_dados_repositorios.json"
 
 print("Informe o nome do arquivo.json que deseja consultar os topicos: ")
 nome_arquivo = input()
 
-arquivo_json = ler_arquivo_json(nome_arquivo)
+arquivo_json = ler_arquivo_json_tipo_2(nome_arquivo)
+base_dados = ler_arquivo_json_tipo_1(nome_base_dados)
+base_dados_json = base_dados['items']
 
-arquivo_json_topicos = consulta_topicos(arquivo_json)
+arquivo_json_topicos = consulta_topicos_base_de_dados_json(base_dados_json, arquivo_json)
 
-# gravar_arquivo_json('teste-topicos.json' , arquivo_json_topicos)
+gravar_arquivo_json('teste_topicos.json', arquivo_json_topicos)
