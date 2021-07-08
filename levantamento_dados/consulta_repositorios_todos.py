@@ -36,7 +36,7 @@ def monta_lista_repos_topico(quesito_pesquisa,lista_palavras_chave):
            estrelas = items[len(items)-1]['stargazers_count']
            print(f'estrelas ultima: {str(estrelas)}')
            # Espera 1 minuto para não ocorrer problemas nas requisições
-           print("10 REGISTROS - Carregando... Espere 1 minuto.")
+           print("9 Requisições - Carregando... Espere 1 minuto.")
            time.sleep(60)
            x = 1 # reseta variável x
 
@@ -73,7 +73,8 @@ def monta_lista_repos_topico(quesito_pesquisa,lista_palavras_chave):
             else:
                 # Verifica se ultimo registro da lista tem menos de 100 estrelas e finaliza
                 if items[len(items)-1]['stargazers_count'] < 100:
-                    print(f'estrelas < 100: {str(estrelas)}')
+                    estrelas = items[len(items)-1]['stargazers_count']
+                    print(f'estrelas menor que 100: {str(estrelas)}')
                     fim = True
                 else:
                     #Pega os repositórios no item e insere em uma lista
