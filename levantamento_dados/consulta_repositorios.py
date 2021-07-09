@@ -85,7 +85,8 @@ fim_palavras_chave = 'S'
 y = 0
 lista_palavras_chave = []
 
-exemplos_topicos = busca_exemplos_topicos()
+#exemplos_topicos = busca_exemplos_topicos()
+exemplos_topicos = ' ' 
 
 # Recebe todas as palavras-cheve e seus valores 
 while fim_palavras_chave == 'S': 
@@ -100,7 +101,7 @@ while fim_palavras_chave == 'S':
     else:
         print(f'Valor da {str(y)}ª palavra-chave: ')
 
-    palavra_chave['valor-palavra-chave'] = input().replace(" ","").lower() # sempre deixa valor palavra-chave sem espaço e minusculo
+    palavra_chave['valor-palavra-chave'] = input()
 
     lista_palavras_chave.append(palavra_chave)
 
@@ -113,8 +114,8 @@ while fim_palavras_chave == 'S':
         fim_palavras_chave = input()
 
 # Espera 1 minuto para não ocorrer problemas nas requisiçõess
-print("Carregando... Espere 1 minuto.")
-time.sleep(60)
+#print("Carregando... Espere 1 minuto.")
+#time.sleep(60)
 
 # Monta quesito de pesquisa com as palavras chaves indicadas
 quesito_pesquisa = monta_quesitos_palavras_chave(lista_palavras_chave)

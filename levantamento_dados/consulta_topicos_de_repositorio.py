@@ -1,7 +1,9 @@
 import requests
 import json
-import time 
-import datetime
+import os
+
+def arquivo_json_existe(file_name):
+    return os.path.exists(file_name)
 
 def requisicao_api(url,headers):
     resposta = requests.get(url,headers=headers)
@@ -10,10 +12,12 @@ def requisicao_api(url,headers):
     else:
         return resposta.status_code
 
+# Leitura de arquivo json comum 
 def ler_arquivo_json_tipo_1(nome_arquivo):
     with open(nome_arquivo, 'r', encoding='utf8') as f:
         return json.load(f)
 
+# Leitura de arquivo json linha a linha
 def ler_arquivo_json_tipo_2(nome_arquivo):
     lista_json = []
     for line in open(nome_arquivo, 'r', encoding='utf8'):
@@ -21,38 +25,9 @@ def ler_arquivo_json_tipo_2(nome_arquivo):
 
     return lista_json
 
-
 def gravar_arquivo_json(nome_arquivo, dados):
     with open(nome_arquivo, 'w', encoding='utf-8') as f:
         json.dump(dados, f, ensure_ascii=False, indent=2, sort_keys=False, separators=(',' , ':'))
-
-def consulta_topicos(lista_repositorios):
-    lista_parcial = []
-    
-    for i in range(0,10):
-        print(lista_repositorios[i]['url'])
-        urlprincipal = str(lista_repositorios[i]['url']) + '/topics'
-        headers = {'Accept': 'application/vnd.github.mercy-preview+json', 'Accept-Charset': 'UTF-8'}
-        dados_api = requisicao_api(urlprincipal,headers)
-        print(dados_api)
-        if type(dados_api) is int: # Caso ocorra algum erro.
-            if dados_api == 404: # Página de topicos não encontrada então deixa lista vazia
-                print(dados_api)
-                lista_repositorios[i]['list_topics'] = []
-                lista_parcial.append(lista_repositorios[i])
-            else:
-                if dados_api == 403:
-                    gravar_arquivo_json('teste-topicos.json' , lista_parcial)
-                    time.sleep(60)
-                else:
-                    print("Erro: " + str(dados_api))
-                    break
-        else:
-            print(dados_api)
-            lista_repositorios[i]['list_topics'] = dados_api['names']
-            lista_parcial.append(lista_repositorios[i])
-
-    return lista_repositorios
 
 # Verifica se o repositorio está na base de dados json. Em caso positivo, atribui a lista de topicos.
 def consulta_topicos_base_de_dados_json(base_dados_json, arquivo_json):
@@ -100,19 +75,31 @@ def consulta_topicos_base_de_dados_json(base_dados_json, arquivo_json):
 
 nome_base_dados = "base_dados_repositorios.json"
 
-print("Informe o nome do arquivo.json que deseja consultar os topicos: ")
+print("Informe o nome do arquivo.json que deseja consultar os topicos na base de dados: ")
 nome_arquivo = input()
 
-arquivo_json = ler_arquivo_json_tipo_2(nome_arquivo)
-base_dados = ler_arquivo_json_tipo_1(nome_base_dados)
-base_dados_json = base_dados['items']
+if arquivo_json_existe(nome_arquivo):
+    
+    print("Deseja pesquisar quantos registros do arquivo informado: ")
+    quantidade_registros_pesquisa = input()
 
-arquivo_json_1000 = []
+    arquivo_json = ler_arquivo_json_tipo_2(nome_arquivo)
+    base_dados = ler_arquivo_json_tipo_1(nome_base_dados)
+    base_dados_json = base_dados['items']
 
-for i in range(1000):
-    arquivo_json_1000.append(arquivo_json[i])
+    # Seleciona os x registros 
+    arquivo_json_reg_selecao = []
 
-arquivo_json_topicos = consulta_topicos_base_de_dados_json(base_dados_json, arquivo_json_1000)
+    for i in range(int(quantidade_registros_pesquisa)):
+        arquivo_json_reg_selecao.append(arquivo_json[i])
 
-print(len(arquivo_json_topicos))
-gravar_arquivo_json('teste_topicos.json', arquivo_json_topicos)
+    arquivo_json_topicos = consulta_topicos_base_de_dados_json(base_dados_json, arquivo_json_reg_selecao)
+
+    print(f'Quantidade de registros encontrados: {str(len(arquivo_json_topicos))}')
+
+    nome_arquivo_saida = f'resultado-{str(nome_arquivo)}'
+
+    gravar_arquivo_json(nome_arquivo_saida, arquivo_json_topicos)
+
+else:
+    print(f'Erro - Arquivo {str(nome_arquivo)} não foi localizados!')

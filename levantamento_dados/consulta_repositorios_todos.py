@@ -24,25 +24,15 @@ def monta_quesitos_palavras_chave(lista_palavras_chaves):
 def monta_lista_repos_topico(quesito_pesquisa,lista_palavras_chave):
     lista_registros = []
     fim = False
-    x = 0
+    page = 0
     contador_ate_403 = 0 
     estrelas = 999999999
 
     # Percorre os 1000 primeiros registros, ou seja, 10 páginas de 100 registros.
     while not fim:
-        x = x + 1
+        page = page + 1
         
-        if x % 10 == 0: # Quando realiza 10 requisições espera 1 minuto
-           estrelas = items[len(items)-1]['stargazers_count']
-           print(f'estrelas ultima: {str(estrelas)}')
-           # Espera 1 minuto para não ocorrer problemas nas requisições
-           print("9 Requisições - Carregando... Espere 1 minuto.")
-           time.sleep(60)
-           x = 1 # reseta variável x
-
-        print(f'estrelas: {str(estrelas)}')
-
-        urlprincipal = f'https://api.github.com/search/repositories?q={str(quesito_pesquisa)}+stars:<{str(estrelas)}&sort=stars&order=desc&page={str(x)}&per_page=100' 
+        urlprincipal = f'https://api.github.com/search/repositories?q={str(quesito_pesquisa)}+stars:<{str(estrelas)}&sort=stars&order=desc&page={str(page)}&per_page=100' 
 
         headers = {'Accept': 'application/vnd.github.mercy-preview+json', 'Accept-Charset': 'UTF-8'}
 
@@ -63,7 +53,7 @@ def monta_lista_repos_topico(quesito_pesquisa,lista_palavras_chave):
         else:
             contador_ate_403 = contador_ate_403 + 1
             
-            print("Página: " + str(x))
+            print("Página: " + str(page))
             print(urlprincipal)
 
             items = dados_api['items']
@@ -74,13 +64,22 @@ def monta_lista_repos_topico(quesito_pesquisa,lista_palavras_chave):
                 # Verifica se ultimo registro da lista tem menos de 100 estrelas e finaliza
                 if items[len(items)-1]['stargazers_count'] < 100:
                     estrelas = items[len(items)-1]['stargazers_count']
-                    print(f'estrelas menor que 100: {str(estrelas)}')
+                    print(f'Chegamos em quantidade de estrelas menor que 100: {str(estrelas)}')
                     fim = True
                 else:
                     #Pega os repositórios no item e insere em uma lista
                     for i in range(len(items)):
                         lista_registros.append(items[i])
-        
+
+
+        if page % 10 == 0: # Quando realiza 10 requisições espera 1 minuto
+           estrelas = items[len(items)-1]['stargazers_count']
+           print(f'Última quantidade de estrelas: {str(estrelas)}')
+           # Espera 1 minuto para não ocorrer problemas nas requisições
+           print("Foram realizadas 10 requisições - Carregando... Espere 1 minuto.")
+           time.sleep(60)
+           page = 0 # reseta variável page        
+
     return(lista_registros)
 
 # Busca os 10 tópicos mais populares que tem a palavra data em algum de suas descrições
