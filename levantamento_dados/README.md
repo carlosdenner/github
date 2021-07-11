@@ -47,4 +47,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Python3](https://www.python.org/)
 - [JSON](https://www.json.org/json-en.html)
 
+### Dados
+
+Os dados gerados nesse projeto podem ser acessados pelo link abaixo:
+- [Dados](https://drive.google.com/drive/folders/1nwXFGrAOknPYeDqSTQfKhwJRTe4GvilS?usp=sharing)
 
