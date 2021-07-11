@@ -122,7 +122,7 @@ exemplos_topicos = busca_exemplos_topicos()
 # Recebe todas as palavras-cheve e seus valores 
 while fim_palavras_chave == 'S': 
     y = y + 1
-    palavra_chave = {}
+    palavra_chave = {}  
     
     print(f'{str(y)}ª palavra-chave (Exemplo: topic): ')
     palavra_chave['palavra-chave'] = input().replace(" ","").lower() # sempre deixa palavra-chave sem espaço e minuscula
