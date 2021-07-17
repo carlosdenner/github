@@ -13,6 +13,7 @@ ORDER BY w.num_watchers DESC
 -- Buscar o histórico de estrelas dos 1000 repositórios
 -- Buscar o histórico de commits dos 1000 repositórios
 -- Buscar o histórico de issues dos 1000 repositórios
+-- Buscar o histórico de membros dos 1000 repositórios
 
 SELECT * FROM `ghtorrentmysql1906.MySQL1906.watchers` 
  WHERE project_id IN 
@@ -22,6 +23,10 @@ SELECT * FROM `ghtorrentmysql1906.MySQL1906.issues`
  
 SELECT * FROM `ghtorrentmysql1906.MySQL1906.watchers` 
  WHERE repo_id IN 
+
+SELECT * 
+  FROM `ghtorrentmysql1906.MySQL1906.project_members` 
+ WHERE repo_id IN
 ( 0010512714  ,  0026427893  ,  0095223168  ,  0119686868  ,  0096096286  , 
 0059138123  ,  0081773934  ,  0000002160  ,  0030727387  ,  0076412857  , 
 0031810056  ,  0005885538  ,  0055536475  ,  0045914140  ,  0090777277  , 
