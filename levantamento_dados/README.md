@@ -64,3 +64,12 @@ As seguintes ferramentas foram usadas na construção do projeto:
 Os dados gerados nesse projeto podem ser acessados pelo link abaixo:
 - [Dados](https://drive.google.com/drive/folders/1nwXFGrAOknPYeDqSTQfKhwJRTe4GvilS?usp=sharing)
 
+#### Criação de banco de dados
+
+#### Histórico de quantidade de estrelas do repositório por dia: 
+Arquivo que possui a informação de quantas estrelas o repositório X possui na data Y. Informações desde a criação do repositório até a data de 31/05/2019.
+
+##### Criação
+1. Executar no BIGQUERY a QUERY 2 do arquivo ghtorrent_levantamento_dados/BIGQUERY-Consultas-GHTorrent. Essa query vai retornar a quantidade de estrelas por dia de cada um dos repositórios selecionados. Baixe o arquivo JSON do resultado no seu Google Drive.
+2. Executar o módulo **identifica_data_criacao_repositorio.py** com o arquivo gerado acima e o arquivo JSON que possui os repositórios.
+3. Executar o módulo **gerar_historico_estrelas.py** com o arquivo resultado do passo anterior.
