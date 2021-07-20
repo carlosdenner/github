@@ -1,3 +1,4 @@
+-- QUERY 1
 -- Buscar repositórios Python criados a partir de 2012 por ordem de número de estrelas
 
 SELECT p.id , p.name , p.url , p.created_at , w.num_watchers
@@ -10,11 +11,23 @@ SELECT p.id , p.name , p.url , p.created_at , w.num_watchers
 ON p.id = w.repo_id
 ORDER BY w.num_watchers DESC
 
+-- QUERY 2
+-- Buscar o histórico de estrelas dos 1000 repositórios.
+-- Faz count por repositório e data. Então, vai trazer quantas estrelas o
+-- repositório x tem na data y.
+
+SELECT repo_id
+     , date(created_at) as data
+     , COUNT(1) as quantidade_estrelas
+  FROM `ghtorrentmysql1906.MySQL1906.watchers` 
+ WHERE repo_id IN --- INSERIR REGISTROS ABAIXO
+ GROUP BY repo_id, data
+ ORDER BY repo_id, data;
+
 -- Buscar o histórico de estrelas dos 1000 repositórios
 -- Buscar o histórico de commits dos 1000 repositórios
 -- Buscar o histórico de issues dos 1000 repositórios
 -- Buscar o histórico de membros dos 1000 repositórios
--- Buscar o histórico de forks dos 1000 repositórios
 
 SELECT * FROM `ghtorrentmysql1906.MySQL1906.watchers` 
  WHERE project_id IN 
@@ -29,8 +42,7 @@ SELECT *
   FROM `ghtorrentmysql1906.MySQL1906.project_members` 
  WHERE repo_id IN
 
-SELECT * FROM `ghtorrentmysql1906.MySQL1906.projects`
- WHERE forked_from IN
+ 
 ( 0010512714  ,  0026427893  ,  0095223168  ,  0119686868  ,  0096096286  , 
 0059138123  ,  0081773934  ,  0000002160  ,  0030727387  ,  0076412857  , 
 0031810056  ,  0005885538  ,  0055536475  ,  0045914140  ,  0090777277  , 

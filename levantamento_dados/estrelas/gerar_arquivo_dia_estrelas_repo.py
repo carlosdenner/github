@@ -33,7 +33,7 @@ def gerar_datas_repositorios_criacao_ate_fim(arquivo_json):
         data_criacao = datetime.datetime.strftime(data_criacao, "%d-%m-%Y")
         
         # Calcula a diferença entre a data de criação e a data limite
-        qtd_dias = diferenca_entre_datas(data_criacao,'12-07-2021')
+        qtd_dias = diferenca_entre_datas(data_criacao,'01-06-2019')
         
         data_hora = parser.parse(data_criacao)
         
@@ -62,16 +62,20 @@ def calcular_estrelas_cada_dia(arquivo,arquivo_estrelas):
             estrelas_ant = 0
             repo_ant_id = arquivo[i]['id']
 
-        print(arquivo[i]['data'])
-
         # Filtra as estrelas do repositorio naquele dia
         # Forma uma lista e conta quantos registros tem na lista 
-        quantidade = len(list(filter(lambda x:x["repo_id"]    == arquivo[i]['id'] and 
-                                              x["created_at"] == arquivo[i]['data'],
-                                              arquivo_estrelas)))
+        registro = list(filter(lambda x:x["repo_id"] == arquivo[i]['id'] and 
+                                        x["data"]    == arquivo[i]['data'],
+                                    arquivo_estrelas))
+        
+        if len(registro) == 1:
+            estrelas_ant = estrelas_ant + int(registro[0]['quantidade_estrelas'])
+            arquivo[i]['estrelas'] = estrelas_ant
 
-        estrelas_ant = estrelas_ant + quantidade
-        arquivo[i]['estrelas'] = estrelas_ant
+        if len(registro) > 1:
+            print("ERRO")
+            print(registro)
+            break
         
     return arquivo
 
@@ -89,18 +93,7 @@ nome_arquivo_repositorios = input()
 print("Informe o nome do arquivo.json das estrelas: ")
 nome_arquivo_estrelas = input()
 
-arquivo_json_repositorios_1 = ler_arquivo_json_tipo_1(nome_arquivo_repositorios)
-
-arquivo_json_repositorios = []
-
-# arquivo_json_repositorios_1.sort(key=operator.itemgetter('id'), reverse=True)
-
-for x in range(1):
-    arquivo_json_repositorios.append(arquivo_json_repositorios_1[x])
-
-print(arquivo_json_repositorios[0])
-
-arquivo_json_repositorios.sort(key=operator.itemgetter('id'), reverse=True)
+arquivo_json_repositorios = ler_arquivo_json_tipo_1(nome_arquivo_repositorios)
 
 arquivo_json_saida_repo = gerar_datas_repositorios_criacao_ate_fim(arquivo_json_repositorios)
 
@@ -110,4 +103,4 @@ arquivo_json_estrelas.sort(key=operator.itemgetter('repo_id'), reverse=True)
 
 arquivo_saida = calcular_estrelas_cada_dia(arquivo_json_saida_repo,arquivo_json_estrelas)
 
-gravar_arquivo_json("saida2.json",arquivo_saida)
+gravar_arquivo_json("saida4.json",arquivo_saida)

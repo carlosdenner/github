@@ -20,9 +20,9 @@ arquivo_json = ler_arquivo_json_tipo_2(nome_arquivo)
 
 for i in range(len(arquivo_json)):
 
-    data_hora = parser.parse(arquivo_json[i]['created_at'])
+    data_hora = parser.parse(arquivo_json[i]['data'])
     data = datetime.datetime.strftime(data_hora, "%d-%m-%Y")
-    arquivo_json[i]['created_at'] = data
+    arquivo_json[i]['data'] = data
 
 
 nome_arquivo_saida = f'saida-{nome_arquivo}'
