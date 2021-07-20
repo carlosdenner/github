@@ -23,31 +23,63 @@ def monta_quesitos_palavras_chave(lista_palavras_chaves):
 
 def monta_lista_repos_topico(quesito_pesquisa,lista_palavras_chave):
     lista_registros = []
-    
+    fim = False
+    page = 0
+    contador_ate_403 = 0 
+    estrelas = 999999999
+
     # Percorre os 1000 primeiros registros, ou seja, 10 páginas de 100 registros.
-    for x in range(1,11):
-        urlprincipal = f'https://api.github.com/search/repositories?q={str(quesito_pesquisa)}&sort=stars&order=desc&page={str(x)}&per_page=100' 
+    while not fim:
+        page = page + 1
+        
+        urlprincipal = f'https://api.github.com/search/repositories?q={str(quesito_pesquisa)}+stars:<{str(estrelas)}&sort=stars&order=desc&page={str(page)}&per_page=100' 
 
         headers = {'Accept': 'application/vnd.github.mercy-preview+json', 'Accept-Charset': 'UTF-8'}
 
         dados_api = requisicao_api(urlprincipal,headers)    
 
         if type(dados_api) is int: # Caso ocorra algum erro, finaliza busca
-            print("Erro: " + str(dados_api))
-            break
+            if dados_api == 403:
+                if contador_ate_403 == 0: # Caso o erro 403 ocorra de registro em registro
+                    fim = True
+                else: 
+                    # Espera 1 minuto para não ocorrer problemas nas requisições
+                    print("ERRO 403 - Carregando... Espere 1 minuto.")
+                    time.sleep(60)
+                    contador_ate_403 = 0 # Reseta variável
+            else:
+                print("Erro: " + str(dados_api))
+                fim = True
         else:
-            print("Página: " + str(x))
+            contador_ate_403 = contador_ate_403 + 1
+            
+            print("Página: " + str(page))
             print(urlprincipal)
 
             items = dados_api['items']
             
             if len(items) == 0: #Verifica se lista está vazia e finaliza busca
-                break
+                fim = True
             else:
-                #Pega os repositórios no item e insere em uma lista
-                for i in range(len(items)):
-                    lista_registros.append(items[i])
-        
+                # Verifica se ultimo registro da lista tem menos de 100 estrelas e finaliza
+                if items[len(items)-1]['stargazers_count'] < 100:
+                    estrelas = items[len(items)-1]['stargazers_count']
+                    print(f'Chegamos em quantidade de estrelas menor que 100: {str(estrelas)}')
+                    fim = True
+                else:
+                    #Pega os repositórios no item e insere em uma lista
+                    for i in range(len(items)):
+                        lista_registros.append(items[i])
+
+
+        if page % 10 == 0: # Quando realiza 10 requisições espera 1 minuto
+           estrelas = items[len(items)-1]['stargazers_count']
+           print(f'Última quantidade de estrelas: {str(estrelas)}')
+           # Espera 1 minuto para não ocorrer problemas nas requisições
+           print("Foram realizadas 10 requisições - Carregando... Espere 1 minuto.")
+           time.sleep(60)
+           page = 0 # reseta variável page        
+
     return(lista_registros)
 
 # Busca os 10 tópicos mais populares que tem a palavra data em algum de suas descrições
@@ -85,13 +117,12 @@ fim_palavras_chave = 'S'
 y = 0
 lista_palavras_chave = []
 
-#exemplos_topicos = busca_exemplos_topicos()
-exemplos_topicos = ' ' 
+exemplos_topicos = busca_exemplos_topicos()
 
 # Recebe todas as palavras-cheve e seus valores 
 while fim_palavras_chave == 'S': 
     y = y + 1
-    palavra_chave = {}
+    palavra_chave = {}  
     
     print(f'{str(y)}ª palavra-chave (Exemplo: topic): ')
     palavra_chave['palavra-chave'] = input().replace(" ","").lower() # sempre deixa palavra-chave sem espaço e minuscula
@@ -101,7 +132,7 @@ while fim_palavras_chave == 'S':
     else:
         print(f'Valor da {str(y)}ª palavra-chave: ')
 
-    palavra_chave['valor-palavra-chave'] = input()
+    palavra_chave['valor-palavra-chave'] = input().replace(" ","").lower() # sempre deixa valor palavra-chave sem espaço e minusculo
 
     lista_palavras_chave.append(palavra_chave)
 
@@ -114,8 +145,8 @@ while fim_palavras_chave == 'S':
         fim_palavras_chave = input()
 
 # Espera 1 minuto para não ocorrer problemas nas requisiçõess
-#print("Carregando... Espere 1 minuto.")
-#time.sleep(60)
+print("Carregando... Espere 1 minuto.")
+time.sleep(60)
 
 # Monta quesito de pesquisa com as palavras chaves indicadas
 quesito_pesquisa = monta_quesitos_palavras_chave(lista_palavras_chave)
