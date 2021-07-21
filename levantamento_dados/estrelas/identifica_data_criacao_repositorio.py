@@ -10,26 +10,26 @@ def gravar_arquivo_json(nome_arquivo, dados):
     with open(nome_arquivo, 'w', encoding='utf-8') as f:
         json.dump(dados, f, ensure_ascii=False, indent=2, sort_keys=False, separators=(',' , ':'))
 
-def gerar_data_criacao_repositorio(arquivo, arquivo_estrelas):
+def gerar_data_criacao_repositorio(arquivo, arquivo_2):
     repo_id_ant = 0
 
-    for i in range(len(arquivo_estrelas)):
+    for i in range(len(arquivo_2)):
 
-        if arquivo_estrelas[i]['repo_id'] != repo_id_ant:
-            print(arquivo_estrelas[i]['repo_id'] )
-            repo_id_ant =  arquivo_estrelas[i]['repo_id'] 
+        if arquivo_2[i]['repo_id'] != repo_id_ant:
+            print(arquivo_2[i]['repo_id'] )
+            repo_id_ant =  arquivo_2[i]['repo_id'] 
 
-            registro = list(filter(lambda x:x["id"] == arquivo_estrelas[i]['repo_id'],arquivo))
+            registro = list(filter(lambda x:x["id"] == arquivo_2[i]['repo_id'],arquivo))
 
             data_criacao_utc = registro[0]['created_at']
             data_criacao     = parser.parse(data_criacao_utc)
             data_criacao     = datetime.datetime.strftime(data_criacao, "%d-%m-%Y")
-            arquivo_estrelas[i]['data_criacao'] = data_criacao
+            arquivo_2[i]['data_criacao'] = data_criacao
         else:
-            arquivo_estrelas[i]['data_criacao'] = ""
+            arquivo_2[i]['data_criacao'] = ""
 
 
-    return arquivo_estrelas
+    return arquivo_2
 
 #================================================================================#
 # MAIN                                                                           #
@@ -38,15 +38,15 @@ def gerar_data_criacao_repositorio(arquivo, arquivo_estrelas):
 print("Informe o arquivo.json dos repositórios: ")
 nome_arquivo_repositorios = input()
 
-print("Informe o nome do arquivo.json das estrelas: ")
-nome_arquivo_estrelas = input()
+print("Informe o nome do arquivo.json: ")
+nome_arquivo = input()
 
 arquivo_json_repositorios = ler_arquivo_json_tipo_1(nome_arquivo_repositorios)
 
-arquivo_json_estrelas = ler_arquivo_json_tipo_1(nome_arquivo_estrelas)
+arquivo_json = ler_arquivo_json_tipo_1(nome_arquivo)
 
-arquivo_json_estrelas_saida = gerar_data_criacao_repositorio(arquivo_json_repositorios,arquivo_json_estrelas)
+arquivo_json_saida = gerar_data_criacao_repositorio(arquivo_json_repositorios,arquivo_json)
 
-nome_arquivo_saida = f'saida-1-{str(nome_arquivo_estrelas)}'
+nome_arquivo_saida = f'saida-1-{str(nome_arquivo)}'
 
-gravar_arquivo_json(nome_arquivo_saida,arquivo_json_estrelas_saida)
+gravar_arquivo_json(nome_arquivo_saida,arquivo_json_saida)
