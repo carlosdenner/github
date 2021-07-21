@@ -24,6 +24,29 @@ SELECT repo_id
  GROUP BY repo_id, data
  ORDER BY repo_id, data;
 
+-- QUERY 3
+-- Buscar o histórico de forks dos 1000 repositórios.
+-- Faz count por repositório e data. Então, vai trazer quantos forks o
+-- repositório x tem na data y.
+
+SELECT forked_from
+     , date(created_at) as data
+     , COUNT(1) as quantidade_forks
+  FROM `ghtorrentmysql1906.MySQL1906.projects`
+ WHERE forked_from IN --- INSERIR REGISTROS ABAIXO
+ GROUP BY forked_from, data
+ ORDER BY forked_from, data;
+
+-- QUERY 4
+-- Quantos forks cada um dos 1000 repositórios possui
+
+SELECT forked_from
+     , COUNT(1) as quantidade_forks
+  FROM `ghtorrentmysql1906.MySQL1906.projects`
+ WHERE forked_from IN --- INSERIR REGISTROS ABAIXO
+ GROUP BY forked_from
+ORDER BY forked_from;
+
 -- Buscar o histórico de estrelas dos 1000 repositórios
 -- Buscar o histórico de commits dos 1000 repositórios
 -- Buscar o histórico de issues dos 1000 repositórios
@@ -42,7 +65,10 @@ SELECT *
   FROM `ghtorrentmysql1906.MySQL1906.project_members` 
  WHERE repo_id IN
 
- 
+SELECT * 
+  FROM `ghtorrentmysql1906.MySQL1906.projects` 
+ WHERE forked_from IN
+
 ( 0010512714  ,  0026427893  ,  0095223168  ,  0119686868  ,  0096096286  , 
 0059138123  ,  0081773934  ,  0000002160  ,  0030727387  ,  0076412857  , 
 0031810056  ,  0005885538  ,  0055536475  ,  0045914140  ,  0090777277  , 
