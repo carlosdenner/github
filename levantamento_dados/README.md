@@ -47,6 +47,18 @@ Na pasta **estrelas**:
 - **gerar_historico_estrelas.py**: recebe como entrada arquivo com o histórico de estrelas somado por data e também com a data de criação do repositório. Retorna o arquivo com o histórico da quantidade de estrelas que o repositório possui em cada dia desde sua criação até 31/05/2019 (ùltima atualização da base de dados do BigQuery).
 - **gerar_arquivo_dia_estrelas_repo.py**: recebe como entrada arquivo com o histórico de estrelas original e arquivo com os repositórios. Retorna as mesmas informações do módulo acima, porém, não possui performace suficiente para processar muitos registros.
 
+### Módulos para manipular arquivos JSON com informações de forks:
+Na pasta **forks**:
+
+- **identifica_data_criacao_repositorio.py**: recebe como entrada arquivo de repositórios e arquivo de histórico de forks. Identifica a data de criação do repositório e inclui no registro mais antigo do histórico de forks e retorna esse arquivo.
+- **gerar_historico_forks.py**: recebe como entrada arquivo com o histórico de forks somado por data e também com a data de criação do repositório. Retorna o arquivo com o histórico da quantidade de forks que o repositório possui em cada dia desde sua criação até 31/05/2019 (ùltima atualização da base de dados do BigQuery).
+
+### Módulos para manipular arquivos JSON com informações de contribuidores:
+Na pasta **contribuidores**:
+
+- **identifica_data_criacao_repositorio.py**: recebe como entrada arquivo de repositórios e arquivo de histórico de contribuidores. Identifica a data de criação do repositório e inclui no registro mais antigo do histórico de contribuidores e retorna esse arquivo.
+- **gerar_historico_contribuidores.py**: recebe como entrada arquivo com o histórico de contribuidores somado por data e também com a data de criação do repositório. Retorna o arquivo com o histórico da quantidade de contribuidores que o repositório possui em cada dia desde sua criação até 31/05/2019 (ùltima atualização da base de dados do BigQuery).
+
 ### Módulos auxiliares para formatação:
 
 - **transformar_created_at_em_data.py**: transformar a data created_at formato timestamp UTC em data formato dd-mm-yyyy.
@@ -71,5 +83,25 @@ Arquivo que possui a informação de quantas estrelas o repositório X possui na
 
 ###### Criação
 1. Executar no BIGQUERY a QUERY 2 do arquivo consultas_big_query/BIGQUERY-Consultas-GHTorrent. Essa query vai retornar a quantidade de estrelas por dia de cada um dos repositórios selecionados. Baixe o arquivo JSON do resultado no seu Google Drive.
-2. Executar o módulo **identifica_data_criacao_repositorio.py** com o arquivo gerado acima e o arquivo JSON que possui os repositórios.
-3. Executar o módulo **gerar_historico_estrelas.py** com o arquivo resultado do passo anterior.
+2. Executar o módulo **transformar_created_at_em_data.py** (leitura 2) com o arquivo gerado acima. Esse módulo vai transformar o arquivo em formato JSON lista.
+3. Executar o módulo **identifica_data_criacao_repositorio.py** com o arquivo gerado acima e o arquivo JSON que possui os repositórios.
+4. Executar o módulo **gerar_historico_estrelas.py** com o arquivo resultado do passo anterior.
+
+
+##### Histórico de quantidade de forks do repositório por dia: 
+Arquivo que possui a informação de quantos forks o repositório X possui na data Y. Informações desde a criação do repositório até a data de 31/05/2019.
+
+###### Criação
+1. Executar no BIGQUERY a QUERY 3 do arquivo consultas_big_query/BIGQUERY-Consultas-GHTorrent. Essa query vai retornar a quantidade de forks por dia de cada um dos repositórios selecionados. Baixe o arquivo JSON do resultado no seu Google Drive.
+2. Executar o módulo **transformar_created_at_em_data.py** (leitura 2) com o arquivo gerado acima. Esse módulo vai transformar o arquivo em formato JSON lista.
+3. Executar o módulo **identifica_data_criacao_repositorio.py** com o arquivo gerado acima e o arquivo JSON que possui os repositórios.
+4. Executar o módulo **gerar_historico_forks.py** com o arquivo resultado do passo anterior.
+
+##### Histórico de quantidade de contribuidores do repositório por dia: 
+Arquivo que possui a informação de quantos contribuidores o repositório X possui na data Y. Informações desde a criação do repositório até a data de 31/05/2019.
+
+###### Criação
+1. Executar no BIGQUERY a QUERY 5 do arquivo consultas_big_query/BIGQUERY-Consultas-GHTorrent. Essa query vai retornar a quantidade de contribuidores por dia de cada um dos repositórios selecionados. Baixe o arquivo JSON do resultado no seu Google Drive.
+2. Executar o módulo **transformar_created_at_em_data.py** (leitura 2) com o arquivo gerado acima. Esse módulo vai transformar o arquivo em formato JSON lista.
+3. Executar o módulo **identifica_data_criacao_repositorio.py** com o arquivo gerado acima e o arquivo JSON que possui os repositórios.
+4. Executar o módulo **gerar_historico_contribuidores.py** com o arquivo resultado do passo anterior.
