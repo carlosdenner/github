@@ -54,6 +54,7 @@ Na pasta **forks**:
 - **gerar_historico_forks.py**: recebe como entrada arquivo com o histórico de forks somado por data e também com a data de criação do repositório. Retorna o arquivo com o histórico da quantidade de forks que o repositório possui em cada dia desde sua criação até 31/05/2019 (ùltima atualização da base de dados do BigQuery).
 
 ### Módulos para manipular arquivos JSON com informações de contribuidores:
+O **contribuidor** é um usuário que fez um commit no projeto. O data do primeiro commit é considerada a data de ingresso do contribuidor no projeto.
 Na pasta **contribuidores**:
 
 - **identifica_data_criacao_repositorio.py**: recebe como entrada arquivo de repositórios e arquivo de histórico de contribuidores. Identifica a data de criação do repositório e inclui no registro mais antigo do histórico de contribuidores e retorna esse arquivo.
@@ -105,3 +106,6 @@ Arquivo que possui a informação de quantos contribuidores o repositório X pos
 2. Executar o módulo **transformar_created_at_em_data.py** (leitura 2) com o arquivo gerado acima. Esse módulo vai transformar o arquivo em formato JSON lista.
 3. Executar o módulo **identifica_data_criacao_repositorio.py** com o arquivo gerado acima e o arquivo JSON que possui os repositórios.
 4. Executar o módulo **gerar_historico_contribuidores.py** com o arquivo resultado do passo anterior.
+
+##### Histórico de quantidade de releases do repositório por dia: 
+1. consulta_releases_repositorios.py -> seleciona_releases_entre_datas.py -> gerar_repositorio_data_release.py -> gerar_quantidade_releases_somado_por_dia.py -> identifica_data_criacao_repositorio.py -> gerar_historico_releases.py
