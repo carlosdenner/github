@@ -60,6 +60,17 @@ Na pasta **contribuidores**:
 - **identifica_data_criacao_repositorio.py**: recebe como entrada arquivo de repositórios e arquivo de histórico de contribuidores. Identifica a data de criação do repositório e inclui no registro mais antigo do histórico de contribuidores e retorna esse arquivo.
 - **gerar_historico_contribuidores.py**: recebe como entrada arquivo com o histórico de contribuidores somado por data e também com a data de criação do repositório. Retorna o arquivo com o histórico da quantidade de contribuidores que o repositório possui em cada dia desde sua criação até 31/05/2019 (ùltima atualização da base de dados do BigQuery).
 
+### Módulos para manipular arquivos JSON com informações de releases:
+Na pasta **releases**:
+- **consulta_releases_repositorios.py**: consulta todas as releases dos repositórios informados no arquivo de entrada. Retorna um arquivo .json com a lista de releases vinculada a cada repositório. Caso tenham problema com o token de autenticação, basta criar um novo e informar no código. Em caso de internet com problema basta alterar o FOR da linha 26 e passar a buscar por quantidade de registros. Exemplo: for x in (range(300,400)): -> busca do registro 300 até o 399 do arquivo de entrada. Para juntar os vários arquivos de saida pode ser utilizado o script **junta_arquivos.py**.
+Criação de token acesso Github: https://docs.github.com/pt/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
+- **seleciona_releases_entre_datas.py**: recebe o arquivo de saída do script anterior e seleciona somente as releases que ocorreram entre 01/02/2012 até 31/05/2019.
+- **gerar_repositorio_data_release.py**: recebe o arquivo de saída do script anterior e gera arquivo com repositório e data da releases.
+- **gerar_quantidade_releases_somado_por_dia.py**: recebe o arquivo de saída do script anterior e soma as releases que ocorreram no mesmo dia. Retorna um arquivo que possui o repositório, data e quantidade de releases nessa data para esse repositório.
+- **gerar_historico_releases.py**: recebe como entrada arquivo com o histórico de releases somado por data e também com a data de criação do repositório. Retorna o arquivo com o histórico da quantidade de releases que o repositório possui em cada dia desde sua criação até 31/05/2019 (ùltima atualização da base de dados do BigQuery).
+- **identifica_data_criacao_repositorio.py**: recebe como entrada arquivo de repositórios e arquivo de histórico de releases. Identifica a data de criação do repositório e inclui no registro mais antigo do histórico de releases e retorna esse arquivo.
+
+
 ### Módulos auxiliares para formatação:
 
 - **transformar_created_at_em_data.py**: transformar a data created_at formato timestamp UTC em data formato dd-mm-yyyy.
@@ -109,7 +120,7 @@ Data em que o contribuidor ingressou no Github. Somente os contribuidores dos 10
 
 Fonte: GHTorrent
 
-#### CONTRIBUIDORES/NÍVEL DE EXPERIÊNCIA/historico-contribuidor-data-inicio-projeto.csv
+#### CONTRIBUIDORES/NÍVEL DE EXPERIÊNCIA/historico-contribuidor-data-inicio-projeto.csv ou .json
 Data em que o contribuidor ingressou no projeto. Somente os contribuidores dos 1000 repositórios.
 
 Fonte: GHTorrent
@@ -146,4 +157,4 @@ Arquivo que possui a informação de quantos contribuidores o repositório X pos
 4. Executar o módulo **gerar_historico_contribuidores.py** com o arquivo resultado do passo anterior.
 
 ##### Histórico de quantidade de releases do repositório por dia: 
-1. consulta_releases_repositorios.py -> seleciona_releases_entre_datas.py -> gerar_repositorio_data_release.py -> gerar_quantidade_releases_somado_por_dia.py -> identifica_data_criacao_repositorio.py -> gerar_historico_releases.py
+1. Execute os scripts na seguinte ordem: consulta_releases_repositorios.py -> seleciona_releases_entre_datas.py -> gerar_repositorio_data_release.py -> gerar_quantidade_releases_somado_por_dia.py -> identifica_data_criacao_repositorio.py -> gerar_historico_releases.py
