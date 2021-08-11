@@ -77,6 +77,44 @@ As seguintes ferramentas foram usadas na construção do projeto:
 Os dados gerados nesse projeto podem ser acessados pelo link abaixo:
 - [Dados](https://drive.google.com/drive/folders/1nwXFGrAOknPYeDqSTQfKhwJRTe4GvilS?usp=sharing)
 
+#### Banco de dados
+
+#### repositorios-com-topicos.csv ou .json
+Repositórios Python ordenados por número de estrelas. Selecionado os 1000 primeiros. Nesse arquivo também existe uma coluna com a lista de tópicos cadastrados no repositório.
+
+Fonte: GHTorrent e API REST do GITHUB (para buscar os tópicos)
+
+#### CONTRIBUIDORES/quantidade-contribuidores-por-dia.csv ou .json
+Histórico de contribuidores dos 1000 repositórios. Com esse arquivo é possível saber quantos contribuidores existiam no projeto x na data y.
+
+Fonte: GHTorrent
+
+#### ESTRELAS/quantidade-estrelas-por-dia.csv ou .json
+Histórico de estrelas dos 1000 repositórios. Com esse arquivo é possível saber quantas estrelas existiam no projeto x na data y.
+
+Fonte: GHTorrent
+
+#### FORKS/quantidade_forks_por_dia.csv ou .json
+Histórico de forks dos 1000 repositórios. Com esse arquivo é possível saber quantos forks existiam no projeto x na data y.
+
+Fonte: GHTorrent
+
+#### RELEASES/quantidade-releases-por-dia.csv ou .json
+Histórico de releases dos 1000 repositórios. Com esse arquivo é possível saber quantas releases existiam no projeto x na data y.
+
+Fonte: API REST do Github limitando pelo período desde a criação do projeto até 31/05/2019 (fim da base GHTorrent)
+
+#### CONTRIBUIDORES/NÍVEL DE EXPERIÊNCIA/historico-contribuidor-data-inicio-github.csv ou .json
+Data em que o contribuidor ingressou no Github. Somente os contribuidores dos 1000 repositórios.
+
+Fonte: GHTorrent
+
+#### CONTRIBUIDORES/NÍVEL DE EXPERIÊNCIA/historico-contribuidor-data-inicio-projeto.csv
+Data em que o contribuidor ingressou no projeto. Somente os contribuidores dos 1000 repositórios.
+
+Fonte: GHTorrent
+
+
 #### Criação de banco de dados
 
 ##### Histórico de quantidade de estrelas do repositório por dia: 
