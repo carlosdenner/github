@@ -157,4 +157,7 @@ Arquivo que possui a informação de quantos contribuidores o repositório X pos
 4. Executar o módulo **gerar_historico_contribuidores.py** com o arquivo resultado do passo anterior.
 
 ##### Histórico de quantidade de releases do repositório por dia: 
+Arquivo que possui a informação de quantas releases o repositório X possui na data Y. Informações desde a criação do repositório até a data de 31/05/2019.
+
+###### Criação
 1. Execute os scripts na seguinte ordem: consulta_releases_repositorios.py -> seleciona_releases_entre_datas.py -> gerar_repositorio_data_release.py -> gerar_quantidade_releases_somado_por_dia.py -> identifica_data_criacao_repositorio.py -> gerar_historico_releases.py
