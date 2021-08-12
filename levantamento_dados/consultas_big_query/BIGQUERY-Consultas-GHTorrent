@@ -84,7 +84,7 @@ SELECT project_id as repo_id
 SELECT x.project_id       as repo_id
      , COUNT(1)           as quantidade_contribuidores
   FROM `ghtorrentmysql1906.MySQL1906.commits` as x
- WHERE x.project_id IN --- INSERIR REGISTROS ABAIXO
+ WHERE x.project_id --- INSERIR REGISTROS ABAIXO
    AND x.created_at IN (
 SELECT MIN(y.created_at)
   FROM `ghtorrentmysql1906.MySQL1906.commits` as y
@@ -116,7 +116,7 @@ SELECT * FROM `ghtorrentmysql1906.MySQL1906.watchers`
 SELECT * FROM `ghtorrentmysql1906.MySQL1906.issues` 
  WHERE repo_id IN 
  
-SELECT * FROM `ghtorrentmysql1906.MySQL1906.watchers` 
+SELECT * FROM `ghtorrentmysql1906.MySQL1906.commits` 
  WHERE repo_id IN 
 
 SELECT * 
