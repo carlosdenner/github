@@ -40,4 +40,6 @@ print(f'Chaves do arquivo: {str(arquivo_json[0].keys())} ')
 
 nome_arquivo_saida = f'{str(nome_arquivo)}.csv'
 
+print(f'Tamanho do arquivo de entrada: {len(arquivo_json)}')
+
 grava_arquivo_csv(nome_arquivo_saida, arquivo_json)

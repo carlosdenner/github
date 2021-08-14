@@ -77,7 +77,6 @@ SELECT project_id as repo_id
  GROUP BY project_id , author_id
  ORDER BY project_id , author_id , data; 
 
-
 -- QUERY 7
 -- Quantidade de contribuidores de cada um dos 1000 repositórios
 
@@ -105,6 +104,105 @@ SELECT a.id
  WHERE x.project_id IN 
  GROUP BY x.author_id )
  ORDER BY a.id
+
+-- QUERY 9
+-- Identificar todos os usuários envolvidos no pull request
+
+SELECT a.id           as id_pull_request
+     , a.base_repo_id as repo_id
+     , b.user_id
+  FROM `ghtorrentmysql1906.MySQL1906.pull_requests`         AS a
+     , `ghtorrentmysql1906.MySQL1906.pull_request_comments` AS b
+ WHERE b.pull_request_id = a.id
+   AND a.base_repo_id   IN --- INSERIR REGISTROS ABAIXO
+GROUP BY a.id , a.base_repo_id , b.user_id 
+ORDER BY a.base_repo_id , a.id , b.user_id ;
+
+-- QUERY 10
+-- Identificar todos os contribudores envolvidos no commit
+-- vinculado a pull request
+
+SELECT a.id           as id_pull_request
+     , a.base_repo_id as repo_id
+     , b.author_id
+     , c.user_id
+  FROM `ghtorrentmysql1906.MySQL1906.pull_requests`       AS a
+ INNER JOIN `ghtorrentmysql1906.MySQL1906.commits`        AS b
+    ON ( b.id              = a.head_commit_id
+    AND a.base_repo_id    IN --- INSERIR REGISTROS ABAIXO )
+ LEFT JOIN `ghtorrentmysql1906.MySQL1906.commit_comments` AS c
+    ON ( c.commit_id     = b.id
+   AND c.user_id        <> b.author_id )
+GROUP BY a.id , a.base_repo_id , b.author_id , c.user_id 
+ORDER BY a.base_repo_id , a.id , b.author_id , c.user_id ;
+
+-- QUERY 11
+-- Identificar todos os contribudores envolvidos em issue
+-- vinculadas a pull request
+
+SELECT a.id           as id_pull_request
+     , a.base_repo_id as repo_id
+     , c.user_id
+  FROM ( `ghtorrentmysql1906.MySQL1906.pull_requests` AS a
+ INNER JOIN `ghtorrentmysql1906.MySQL1906.issues`     AS b
+    ON ( b.pull_request_id = a.id
+    AND b.pull_request_id IS NOT NULL
+    AND a.base_repo_id IN -- INSERIR REGISTROS AQUI  ) )
+INNER JOIN `ghtorrentmysql1906.MySQL1906.issue_comments` AS c
+    ON ( c.issue_id     = b.id )
+GROUP BY a.id , a.base_repo_id , c.user_id 
+ORDER BY a.base_repo_id , a.id , c.user_id ;
+
+-- QUERY 12
+-- União das queries 9, 10 e 11.
+-- Retira duplicidade de contribuições em um mesmo pull request
+
+SELECT id_pull_request 
+     , repo_id
+     , CASE    
+       WHEN user_id IS NULL
+       THEN author_id
+       ELSE user_id
+       END AS id_contribuidor
+     , date(g.created_at) as data
+  FROM ( 
+SELECT a.id            as id_pull_request
+     , a.base_repo_id  as repo_id
+     , 0               as author_id
+     , b.user_id       as user_id
+  FROM `ghtorrentmysql1906.MySQL1906.pull_requests`         AS a
+     , `ghtorrentmysql1906.MySQL1906.pull_request_comments` AS b
+ WHERE b.pull_request_id = a.id
+   AND a.base_repo_id    IN --- INSERIR REGISTROS ABAIXO
+UNION ALL
+SELECT x.id           as id_pull_request
+     , x.base_repo_id as repo_id
+     , y.author_id    as author_id 
+     , z.user_id      as user_id
+  FROM ( `ghtorrentmysql1906.MySQL1906.pull_requests` AS x
+ INNER JOIN `ghtorrentmysql1906.MySQL1906.commits`    AS y
+    ON ( y.id              = x.head_commit_id
+    AND x.base_repo_id     IN --- INSERIR REGISTROS ABAIXO ) )
+ LEFT JOIN `ghtorrentmysql1906.MySQL1906.commit_comments` AS z
+    ON ( z.commit_id     = y.id
+   AND z.user_id        <> y.author_id) 
+UNION ALL 
+SELECT d.id           as id_pull_request
+     , d.base_repo_id as repo_id
+     , 0              as author_id
+     , f.user_id      as user_id 
+  FROM ( `ghtorrentmysql1906.MySQL1906.pull_requests` AS d
+ INNER JOIN `ghtorrentmysql1906.MySQL1906.issues`     AS e
+    ON ( e.pull_request_id = d.id
+    AND e.pull_request_id IS NOT NULL
+    AND d.base_repo_id    IN --- INSERIR REGISTROS ABAIXO ) )
+INNER JOIN `ghtorrentmysql1906.MySQL1906.issue_comments` AS f
+    ON ( f.issue_id     = e.id ) )
+INNER JOIN `ghtorrentmysql1906.MySQL1906.pull_request_history`  AS g  
+   ON ( g.pull_request_id = id_pull_request 
+   AND action = 'opened' )
+GROUP BY id_pull_request , repo_id , id_contribuidor , data
+ORDER BY repo_id , id_pull_request , id_contribuidor , data
 
 -- Buscar o histórico de estrelas dos 1000 repositórios
 -- Buscar o histórico de commits dos 1000 repositórios
