@@ -125,6 +125,10 @@ Data em que o contribuidor ingressou no projeto. Somente os contribuidores dos 1
 
 Fonte: GHTorrent
 
+#### PULL REQUESTS/PULL REQUESTS - CONTRIBUIDORES/contribuidores-pull-request.csv ou .json
+Todos os contribuidores envolvidos em cada pull request. Possui o identificador do pull request, repositório, contribuidor e data de criação do pull request.
+
+Font: GHTorrent
 
 #### Criação de banco de dados
 
