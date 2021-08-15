@@ -204,6 +204,164 @@ INNER JOIN `ghtorrentmysql1906.MySQL1906.pull_request_history`  AS g
 GROUP BY id_pull_request , repo_id , id_contribuidor , data
 ORDER BY repo_id , id_pull_request , id_contribuidor , data
 
+-- QUERY 13
+-- Identifica a data de ingresso no projeto de cada contribuidor
+-- Substitui a QUERY 6
+
+SELECT repo_id
+     , CASE    
+       WHEN user_id IS NULL
+       THEN author_id
+       ELSE user_id
+       END AS id_contribuidor
+     , MIN(date(created_at)) as data
+  FROM ( 
+SELECT a.base_repo_id  as repo_id
+     , 0               as author_id
+     , b.user_id       as user_id
+     , b.created_at    as created_at
+  FROM `ghtorrentmysql1906.MySQL1906.pull_requests`         AS a
+     , `ghtorrentmysql1906.MySQL1906.pull_request_comments` AS b
+ WHERE b.pull_request_id = a.id
+   AND a.base_repo_id    = --- INSERIR REGISTROS ABAIXO
+UNION ALL
+SELECT x.base_repo_id as repo_id
+     , y.author_id    as author_id 
+     , z.user_id      as user_id
+     , CASE 
+       WHEN z.user_id IS NULL
+       THEN y.created_at
+       ELSE z.created_at
+       END AS created_at
+  FROM ( `ghtorrentmysql1906.MySQL1906.pull_requests` AS x
+ INNER JOIN `ghtorrentmysql1906.MySQL1906.commits`    AS y
+    ON ( y.id              = x.head_commit_id
+    AND x.base_repo_id     = --- INSERIR REGISTROS ABAIXO ) )
+ LEFT JOIN `ghtorrentmysql1906.MySQL1906.commit_comments` AS z
+    ON ( z.commit_id     = y.id
+   AND z.user_id        <> y.author_id) 
+UNION ALL 
+SELECT d.base_repo_id as repo_id
+     , 0              as author_id
+     , f.user_id      as user_id 
+     , f.created_at   as created_at
+  FROM ( `ghtorrentmysql1906.MySQL1906.pull_requests` AS d
+ INNER JOIN `ghtorrentmysql1906.MySQL1906.issues`     AS e
+    ON ( e.pull_request_id = d.id
+    AND e.pull_request_id IS NOT NULL
+    AND d.base_repo_id    = --- INSERIR REGISTROS ABAIXO ) )
+INNER JOIN `ghtorrentmysql1906.MySQL1906.issue_comments` AS f
+    ON ( f.issue_id     = e.id ) )
+GROUP BY repo_id , id_contribuidor 
+ORDER BY repo_id , id_contribuidor ;
+
+-- QUERY 14
+-- Identifica a data de ingresso no Github de cada contribuidor
+-- Substitui QUERY 8
+SELECT j.id
+     , date(j.created_at) AS data
+  FROM `ghtorrentmysql1906.MySQL1906.users` AS j
+ WHERE j.id IN ( 
+SELECT DISTINCT 
+       CASE    
+       WHEN user_id IS NULL
+       THEN author_id
+       ELSE user_id
+       END AS id_contribuidor
+  FROM ( 
+SELECT a.base_repo_id  as repo_id
+     , 0               as author_id
+     , b.user_id       as user_id
+     , b.created_at    as created_at
+  FROM `ghtorrentmysql1906.MySQL1906.pull_requests`         AS a
+     , `ghtorrentmysql1906.MySQL1906.pull_request_comments` AS b
+ WHERE b.pull_request_id = a.id
+   AND a.base_repo_id   IN --- INSERIR REGISTROS ABAIXO
+UNION ALL
+SELECT x.base_repo_id as repo_id
+     , y.author_id    as author_id 
+     , z.user_id      as user_id
+     , CASE 
+       WHEN z.user_id IS NULL
+       THEN y.created_at
+       ELSE z.created_at
+       END AS created_at
+  FROM ( `ghtorrentmysql1906.MySQL1906.pull_requests` AS x
+ INNER JOIN `ghtorrentmysql1906.MySQL1906.commits`    AS y
+    ON ( y.id              = x.head_commit_id
+    AND x.base_repo_id    IN --- INSERIR REGISTROS ABAIXO ) )
+ LEFT JOIN `ghtorrentmysql1906.MySQL1906.commit_comments` AS z
+    ON ( z.commit_id     = y.id ) 
+UNION ALL 
+SELECT d.base_repo_id as repo_id
+     , 0              as author_id
+     , f.user_id      as user_id 
+     , f.created_at   as created_at
+  FROM ( `ghtorrentmysql1906.MySQL1906.pull_requests` AS d
+ INNER JOIN `ghtorrentmysql1906.MySQL1906.issues`     AS e
+    ON ( e.pull_request_id = d.id
+    AND e.pull_request_id IS NOT NULL
+    AND d.base_repo_id    IN --- INSERIR REGISTROS ABAIXO ) )
+INNER JOIN `ghtorrentmysql1906.MySQL1906.issue_comments` AS f
+    ON ( f.issue_id     = e.id ) ) )
+ORDER BY j.id , data
+
+
+-- QUERY 15
+-- Criar o histórico de quantidade de contribuidores por dia de cada
+-- repositório
+
+SELECT repo_id 
+     , data 
+     , COUNT(1) AS quantidade_contribuidores
+FROM ( 
+SELECT repo_id
+     , CASE    
+       WHEN user_id IS NULL
+       THEN author_id
+       ELSE user_id
+       END AS id_contribuidor
+     , MIN(date(created_at)) as data
+  FROM ( 
+SELECT a.base_repo_id  as repo_id
+     , 0               as author_id
+     , b.user_id       as user_id
+     , b.created_at    as created_at
+  FROM `ghtorrentmysql1906.MySQL1906.pull_requests`         AS a
+     , `ghtorrentmysql1906.MySQL1906.pull_request_comments` AS b
+ WHERE b.pull_request_id = a.id
+   AND a.base_repo_id   IN  --- INSERIR REGISTROS AQUI
+UNION ALL
+SELECT x.base_repo_id as repo_id
+     , y.author_id    as author_id 
+     , z.user_id      as user_id
+     , CASE 
+       WHEN z.user_id IS NULL
+       THEN y.created_at
+       ELSE z.created_at
+       END AS created_at
+  FROM ( `ghtorrentmysql1906.MySQL1906.pull_requests` AS x
+ INNER JOIN `ghtorrentmysql1906.MySQL1906.commits`    AS y
+    ON ( y.id              = x.head_commit_id
+    AND x.base_repo_id    IN --- INSERIR REGISTROS AQUI ) )
+ LEFT JOIN `ghtorrentmysql1906.MySQL1906.commit_comments` AS z
+    ON ( z.commit_id     = y.id ) 
+UNION ALL 
+SELECT d.base_repo_id as repo_id
+     , 0              as author_id
+     , f.user_id      as user_id 
+     , f.created_at   as created_at
+  FROM ( `ghtorrentmysql1906.MySQL1906.pull_requests` AS d
+ INNER JOIN `ghtorrentmysql1906.MySQL1906.issues`     AS e
+    ON ( e.pull_request_id = d.id
+    AND e.pull_request_id IS NOT NULL
+    AND d.base_repo_id    IN --- INSERIR REGISTROS AQUI ) )
+INNER JOIN `ghtorrentmysql1906.MySQL1906.issue_comments` AS f
+    ON ( f.issue_id     = e.id ) )
+GROUP BY repo_id , id_contribuidor  )
+GROUP BY repo_id , data
+ORDER BY repo_id , data
+
 -- Buscar o histórico de estrelas dos 1000 repositórios
 -- Buscar o histórico de commits dos 1000 repositórios
 -- Buscar o histórico de issues dos 1000 repositórios
