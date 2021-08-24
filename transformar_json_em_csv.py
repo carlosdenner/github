@@ -38,7 +38,7 @@ print(f'Quantidade dos registros de entrada {len(arquivo_json)}')
 
 print(f'Chaves do arquivo: {str(arquivo_json[0].keys())} ')
 
-nome_arquivo_saida = f'{str(nome_arquivo)}.csv'
+nome_arquivo_saida = nome_arquivo.replace('.json','.csv')
 
 print(f'Tamanho do arquivo de entrada: {len(arquivo_json)}')
 
