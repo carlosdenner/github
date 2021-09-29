@@ -97,7 +97,20 @@ def gerar_historico_code_frequency(arquivo_json):
 
              
         repo_ant = arquivo_json[i]
-  
+
+    qtd_dias = diferenca_entre_datas(repo_ant['data'],'31-05-2019')
+
+    data = datetime.datetime.strptime(repo_ant['data'], "%d-%m-%Y")
+                
+    for x in range(qtd_dias):
+        data = data + timedelta(days=1)
+        data_string = datetime.datetime.strftime(data,"%d-%m-%Y")
+        registro = {}
+        registro['id']                = repo_ant['repo_id']
+        registro['data']              = data_string
+        registro['linhas_alteradas']  = qtd_linhas_alteradas_ant
+        arquivo_saida.append(registro)    
+    
     return arquivo_saida
 
 def gravar_arquivo_json(nome_arquivo, dados):

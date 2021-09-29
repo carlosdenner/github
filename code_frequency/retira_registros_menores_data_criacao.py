@@ -41,14 +41,11 @@ for i in range(len(arquivo_json)):
                 data_hora        = parser.parse(data_criacao_ant)
                 data             = datetime.datetime.strftime(data_hora, "%d-%m-%Y")
                 data_criacao     = datetime.datetime.strptime(data, "%d-%m-%Y")
+                 
+    data_reg = datetime.datetime.strptime(arquivo_json[i]['data'], "%d-%m-%Y")
 
-    data_hora_reg  = parser.parse(arquivo_json[i]['data'])
-    data_reg       = datetime.datetime.strftime(data_hora_reg, "%d-%m-%Y")
-    data_reg       = datetime.datetime.strptime(data_reg, "%d-%m-%Y")
-
-    if data_criacao > data_reg:
-        print(f'Data menor: {str(data_reg)}') 
-    else:
+    if data_criacao <= data_reg:
+        arquivo_json[i]['id'] = str(arquivo_json[i]['id'])
         arquivo_json_saida.append(arquivo_json[i])
 
 nome_arquivo_saida = f'saida-{str(nome_arquivo)}'

@@ -19,8 +19,7 @@ def gerar_historico_releases(arquivo_json):
     repo_ant = {}
 
     for i in range(len(arquivo_json)):
-        
-        print(arquivo_json[i]['name'])
+        print(arquivo_json[i]['id'])
 
         if arquivo_json[i]['data'] == "":
             arquivo_json[i]['data'] = arquivo_json[i]['data_criacao']
@@ -31,7 +30,7 @@ def gerar_historico_releases(arquivo_json):
                 qtd_dias = diferenca_entre_datas(repo_ant['data'],'31-05-2019')
 
                 data = datetime.datetime.strptime(repo_ant['data'], "%d-%m-%Y")
-                    
+                        
                 for x in range(qtd_dias):
                     data = data + timedelta(days=1)
                     data_string = datetime.datetime.strftime(data,"%d-%m-%Y")
@@ -46,9 +45,9 @@ def gerar_historico_releases(arquivo_json):
             qtd_releases_ant = 0
 
             if arquivo_json[i]['data_criacao'] != arquivo_json[i]['data']:
-                    
+                        
                 qtd_dias = diferenca_entre_datas(arquivo_json[i]['data_criacao'],arquivo_json[i]['data'])
-                
+                    
                 data_releases = datetime.datetime.strptime(arquivo_json[i]['data'],"%d-%m-%Y")
                 data_criacao = datetime.datetime.strptime(arquivo_json[i]['data_criacao'],"%d-%m-%Y")
 
@@ -75,7 +74,7 @@ def gerar_historico_releases(arquivo_json):
                     registro['releases']    = int(arquivo_json[i]['quantidade_releases'])
                     qtd_releases_ant        = int(arquivo_json[i]['quantidade_releases'])
                     arquivo_saida.append(registro)
-                    
+                        
             else:
                 registro = {}
                 registro['id']       = arquivo_json[i]['id']
@@ -84,7 +83,7 @@ def gerar_historico_releases(arquivo_json):
                 qtd_releases_ant        = int(arquivo_json[i]['quantidade_releases'])
                 arquivo_saida.append(registro)   
         else:
-            
+                
             qtd_dias = diferenca_entre_datas(repo_ant['data'],arquivo_json[i]['data'])
 
             data = datetime.datetime.strptime(repo_ant['data'], "%d-%m-%Y")
@@ -100,9 +99,21 @@ def gerar_historico_releases(arquivo_json):
                 registro['releases'] = qtd_releases_ant
                 arquivo_saida.append(registro)     
 
-             
+                
         repo_ant = arquivo_json[i]
-  
+    qtd_dias = diferenca_entre_datas(repo_ant['data'],'31-05-2019')
+
+    data = datetime.datetime.strptime(repo_ant['data'], "%d-%m-%Y")
+                        
+    for x in range(qtd_dias):
+        data = data + timedelta(days=1)
+        data_string = datetime.datetime.strftime(data,"%d-%m-%Y")
+        registro = {}
+        registro['id']       = repo_ant['id']
+        registro['data']     = data_string
+        registro['releases']    = qtd_releases_ant
+        arquivo_saida.append(registro)
+        
     return arquivo_saida
 
 def gravar_arquivo_json(nome_arquivo, dados):

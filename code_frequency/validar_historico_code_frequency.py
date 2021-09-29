@@ -46,7 +46,7 @@ for i in range(len(arquivo_json_repo)):
         achou = False
 
         for x in range(len(lista_de_repositorios)):
-            if arquivo_json_repo[i]['id'] == lista_de_repositorios[x]['repo_id']:
+            if str(arquivo_json_repo[i]['id']) == lista_de_repositorios[x]['repo_id']:
                 achou = True
 
         if achou == False:

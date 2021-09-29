@@ -9,7 +9,7 @@ def processar_arquivo_entrada(arquivo):
     datainicioghtorrent = datetime.datetime(year=2012,month=2,day=1)
 
     for i in range(len(arquivo)):
-        repo_id              = arquivo[i]['id']
+        repo_id              = str(arquivo[i]['id'])
         data_hora            = parser.parse(arquivo[i]['created_at'])
         created_at           = datetime.datetime.strftime(data_hora, "%d-%m-%Y")
 

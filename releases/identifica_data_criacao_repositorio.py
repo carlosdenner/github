@@ -6,21 +6,17 @@ def ler_arquivo_json_tipo_1(nome_arquivo):
     with open(nome_arquivo, 'r', encoding='utf8') as f:
         return json.load(f)
 
-def gravar_arquivo_json(nome_arquivo, dados):
-    with open(nome_arquivo, 'w', encoding='utf-8') as f:
-        json.dump(dados, f, ensure_ascii=False, indent=2, sort_keys=False, separators=(',' , ':'))
 
 def gerar_data_criacao_repositorio(arquivo, arquivo_2):
     repo_id_ant = 0
 
     for i in range(len(arquivo_2)):
-
+        
         if arquivo_2[i]['id'] != repo_id_ant:
-            print(arquivo_2[i]['id'] )
-            repo_id_ant =  arquivo_2[i]['id'] 
+            repo_id_ant =  str(arquivo_2[i]['id'])
 
             registro = list(filter(lambda x:x["id"] == arquivo_2[i]['id'],arquivo))
-
+            
             data_criacao_utc = registro[0]['created_at']
             data_criacao     = parser.parse(data_criacao_utc)
             data_criacao     = datetime.datetime.strftime(data_criacao, "%d-%m-%Y")
@@ -30,6 +26,10 @@ def gerar_data_criacao_repositorio(arquivo, arquivo_2):
 
 
     return arquivo_2
+
+def gravar_arquivo_json(nome_arquivo, dados):
+    with open(nome_arquivo, 'w', encoding='utf-8') as f:
+        json.dump(dados, f, ensure_ascii=False, indent=2, sort_keys=False, separators=(',' , ':'))
 
 #================================================================================#
 # MAIN                                                                           #

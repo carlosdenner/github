@@ -29,7 +29,7 @@ for i in range(len(arquivo_json)):
     
     for x in range(len(lista_releases)):
 
-        data_hora      = parser.parse(lista_releases[x]['created_at'])
+        data_hora      = parser.parse(lista_releases[x]['published_at'])
         data           = datetime.datetime.strftime(data_hora, "%d-%m-%Y")
         dataformatdate = datetime.datetime.strptime(data, "%d-%m-%Y")
 
