@@ -100,18 +100,23 @@ Histórico de contribuidores dos 1000 repositórios. Com esse arquivo é possív
 
 Fonte: GHTorrent
 
-#### ESTRELAS/quantidade-estrelas-por-dia.csv ou .json
+#### ESTRELAS/historico-estrelas.csv ou .json
 Histórico de estrelas dos 1000 repositórios. Com esse arquivo é possível saber quantas estrelas existiam no projeto x na data y.
 
 Fonte: GHTorrent
 
-#### FORKS/quantidade_forks_por_dia.csv ou .json
+#### FORKS/historico-forks.csv ou .json
 Histórico de forks dos 1000 repositórios. Com esse arquivo é possível saber quantos forks existiam no projeto x na data y.
 
 Fonte: GHTorrent
 
-#### RELEASES/quantidade-releases-por-dia.csv ou .json
+#### RELEASES/historico-releases.csv ou .json
 Histórico de releases dos 1000 repositórios. Com esse arquivo é possível saber quantas releases existiam no projeto x na data y.
+
+Fonte: API REST do Github limitando pelo período desde a criação do projeto até 31/05/2019 (fim da base GHTorrent)
+
+#### RELEASES/historico-code-frequency.csv ou .json
+Histórico de releases dos 1000 repositórios. Com esse arquivo é possível saber quantas linhas alteradas existiam no projeto x na data y.
 
 Fonte: API REST do Github limitando pelo período desde a criação do projeto até 31/05/2019 (fim da base GHTorrent)
 
@@ -165,3 +170,13 @@ Arquivo que possui a informação de quantas releases o repositório X possui na
 
 ###### Criação
 1. Execute os scripts na seguinte ordem: consulta_releases_repositorios.py -> seleciona_releases_entre_datas.py -> gerar_repositorio_data_release.py -> gerar_quantidade_releases_somado_por_dia.py -> identifica_data_criacao_repositorio.py -> gerar_historico_releases.py
+
+
+##### Histórico de quantidade de linhas alteradas do repositório por dia: 
+Arquivo que possui a informação de quantas linhas alteradas o repositório X possui na data Y. Informações desde a criação do repositório até a data de 31/05/2019.
+
+###### Criação
+1. Executar **consulta_code_frequency_repositorios.py** que tem como entrada o arquivo com os repostórios. Pesquisa os registros de code frequency (linhas adicionadas e excluídas) de cada repositório. Retorna os registros semanais de code frequency de cada repositório.
+2. Executar **gerar_code_frequency_por_semana.py** que vai formatar a lista de registros de code frequency por repositório.
+3. Executar **gerar_historico_code_frequency.py** que vai gerar o histórico completo de code frequency.
+4. Executar **retira_registros_menores_data_criacao.py** para retirar todos os registros do histórico que estão fora do período de vigência de seu repositório.

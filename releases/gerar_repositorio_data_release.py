@@ -45,7 +45,7 @@ for i in range(len(arquivo_json)):
         # Ler decrementando, pois as releases estão em ordem
         # decrescente por data.
         for x in range(len(lista_releases)-1,-1,-1):
-            # Considera a data de publicação igual a data de criação
+            # Considera a data de publicação igual a data
             data_hora = parser.parse(lista_releases[x]['published_at'])
             data      = datetime.datetime.strftime(data_hora, "%d-%m-%Y")
 
