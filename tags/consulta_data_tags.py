@@ -18,13 +18,15 @@ def ler_arquivo_json(nome_arquivo):
 def consulta_data_das_tags_repositorios(arquivo):
     arquivo_saida = []
     datafimghtorrent = datetime.datetime(year=2019,month=5,day=31)
-
-    for x in (range(len(arquivo))):
+    # Faltou 100 até 150. 
+    for x in (range(0,50)):
 
         print(f'Repositório: {str(x)}')
 
         lista_tags = arquivo[x]['tags']
         
+        print(f'Tamanho da lista de tags: {str(len(lista_tags))}')
+
         if len(lista_tags) == 0:
             print('Repositório vazio')
             registro = {}
@@ -42,7 +44,7 @@ def consulta_data_das_tags_repositorios(arquivo):
                 url    = commit['url']
 
                 headers = {
-                    'Authorization' : 'token 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',
+                    'Authorization' : 'token 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',
                     'Accept': 'application/vnd.github.mercy-preview+json', 
                     'Accept-Charset': 'UTF-8'
                 }
@@ -67,6 +69,9 @@ def consulta_data_das_tags_repositorios(arquivo):
                         # Transforma data de criação do repositório em data normal
                         data_criacao = parser.parse(arquivo[x]['created_at']).replace(tzinfo=None)
 
+                        # Pega o nome da versão da tag
+                        versao          = lista_tags[i]['name']
+
                         # Grava somente registros que estão entre a data de criação e 31-05-2019
                         if data_commit_tag >= data_criacao and data_commit_tag <= datafimghtorrent:
                             registro = {}
@@ -75,6 +80,7 @@ def consulta_data_das_tags_repositorios(arquivo):
                             registro['url']          = arquivo[x]['url']
                             registro['created_at']   = arquivo[x]['created_at']
                             registro['num_watchers'] = arquivo[x]['num_watchers']   
+                            registro['versao']       = versao
                             data_formatada           = datetime.datetime.strftime(data_commit_tag, "%d-%m-%Y")
                             registro['data']         = data_formatada
                             arquivo_saida.append(registro)    
