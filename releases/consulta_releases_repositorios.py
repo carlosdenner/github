@@ -102,6 +102,18 @@ def consulta_releases_repositorios(arquivo):
                     # Pega todas as releases e insere na lista com o seu repositorio
                     for y in range(len(items)):       
                         lista_releases.append(items[y])
+
+                    if i == 10: # Se for a última pesquisa -
+                       # Gera registro do repositorio com suas releases
+                        registro = {}
+                        registro['id']           = arquivo[x]['id'] 
+                        registro['name']         = arquivo[x]['name']
+                        registro['url']          = arquivo[x]['url']
+                        registro['created_at']   = arquivo[x]['created_at']
+                        registro['num_watchers'] = arquivo[x]['num_watchers']       
+                        registro['releases']     = lista_releases
+                        print(f'Quantidade de releases: {len(lista_releases)}')
+                        arquivo_saida.append(registro)   
         
         if erro:
             break

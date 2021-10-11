@@ -1,0 +1,65 @@
+import requests
+import json
+import time
+import datetime
+from dateutil import parser
+
+def ler_arquivo_json(nome_arquivo):
+    with open(nome_arquivo, 'r', encoding='utf8') as f:
+        return json.load(f)
+
+def gravar_arquivo_json(nome_arquivo, dados):
+    with open(nome_arquivo, 'w', encoding='utf-8') as f:
+        json.dump(dados, f, ensure_ascii=False, indent=2, sort_keys=False, separators=(',' , ':'))
+
+#================================================================================#
+# MAIN                                                                           #
+#================================================================================#
+
+print('Informe o arquivo.json das tags: ')
+nome_arquivo_tags = input()
+
+print('Informe o arquivo.json das releases: ')
+nome_arquivo_releases = input()
+
+
+arquivo_json_tags = ler_arquivo_json(nome_arquivo_tags)
+
+arquivo_json_releases = ler_arquivo_json(nome_arquivo_releases)
+
+i = 0
+
+
+for x in range(len(arquivo_json_tags)):
+    if arquivo_json_tags[x]['id'] == arquivo_json_releases[i]['id'] and arquivo_json_tags[x]['data'] != "":
+        lista_releases = []
+        lista_releases = arquivo_json_releases[i]['lista_releases']
+
+        # Transforma toda a lista em date time
+        for z in range(len(lista_releases)):
+            data = datetime.datetime.strptime(lista_releases[z]['data'], '%d-%m-%y')
+            lista_releases[z]['data'] = data
+        
+        achou = False
+        
+        # Procura se data já existe e adiciona mais uma ocorrência no somatório do dia
+        for z in range(len(lista_releases)):
+            if arquivo_json_tags[x]['data'] == lista_releases[z]['data']:
+                lista_releases[z]['data'] = int(lista_releases[z]['data']) + 1
+                achou = True
+                break
+        
+        # Caso a data não exista: cria registro na lista e ordena pela data
+        if not achou:
+            lista_releases.append(arquivo_json_tags[x]['data'])
+            lista_releases.sort(key=lambda item:item['data'], reverse=False)
+
+        arquivo_json_releases[i]['lista_releases'] = lista_releases
+
+    else:
+        i = i + 1
+
+
+nome_arquivo_saida = f'tags-data-{str(arquivo_json_releases)}'
+
+gravar_arquivo_json(nome_arquivo_saida,arquivo_json_releases)

@@ -18,8 +18,8 @@ def ler_arquivo_json(nome_arquivo):
 def consulta_data_das_tags_repositorios(arquivo):
     arquivo_saida = []
     datafimghtorrent = datetime.datetime(year=2019,month=5,day=31)
-    # Faltou 100 até 150. 
-    for x in (range(0,50)):
+    # Faltou 600 até 630 - 631 até 650
+    for x in (range(600,630)):
 
         print(f'Repositório: {str(x)}')
 
@@ -44,7 +44,7 @@ def consulta_data_das_tags_repositorios(arquivo):
                 url    = commit['url']
 
                 headers = {
-                    'Authorization' : 'token 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',
+                    'Authorization' : 'token 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',
                     'Accept': 'application/vnd.github.mercy-preview+json', 
                     'Accept-Charset': 'UTF-8'
                 }
