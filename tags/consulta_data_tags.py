@@ -18,10 +18,11 @@ def ler_arquivo_json(nome_arquivo):
 def consulta_data_das_tags_repositorios(arquivo):
     arquivo_saida = []
     datafimghtorrent = datetime.datetime(year=2019,month=5,day=31)
-    # Faltou 600 até 630 - 631 até 650
-    for x in (range(600,630)):
+    #
+    for x in (range(200,250)):
 
         print(f'Repositório: {str(x)}')
+        print(arquivo[x]['id'])
 
         lista_tags = arquivo[x]['tags']
         
@@ -38,13 +39,13 @@ def consulta_data_das_tags_repositorios(arquivo):
             registro['data']         = ""
             arquivo_saida.append(registro)  
         else:
-
+            todos_fora_margem = True
             for i in range(len(lista_tags)):
                 commit = lista_tags[i]['commit']
                 url    = commit['url']
 
                 headers = {
-                    'Authorization' : 'token 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',
+                    'Authorization' : 'token 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',
                     'Accept': 'application/vnd.github.mercy-preview+json', 
                     'Accept-Charset': 'UTF-8'
                 }
@@ -83,7 +84,19 @@ def consulta_data_das_tags_repositorios(arquivo):
                             registro['versao']       = versao
                             data_formatada           = datetime.datetime.strftime(data_commit_tag, "%d-%m-%Y")
                             registro['data']         = data_formatada
-                            arquivo_saida.append(registro)    
+                            arquivo_saida.append(registro)
+                            todos_fora_margem        = False
+
+            if todos_fora_margem:
+                registro = {}
+                registro['id']           = arquivo[x]['id'] 
+                registro['name']         = arquivo[x]['name']
+                registro['url']          = arquivo[x]['url']
+                registro['created_at']   = arquivo[x]['created_at']
+                registro['num_watchers'] = arquivo[x]['num_watchers']   
+                registro['data']         = ""
+                arquivo_saida.append(registro)
+
         
     return arquivo_saida
 

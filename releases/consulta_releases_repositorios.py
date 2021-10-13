@@ -33,7 +33,7 @@ def consulta_releases_repositorios(arquivo):
             # Caso o token expire. Basta acessar o link abaixo e criar um novo e inserir aqui.
             # https://docs.github.com/pt/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
             headers = {
-                'Authorization' : 'token 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',
+                'Authorization' : 'token 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',
                 'Accept': 'application/vnd.github.mercy-preview+json', 
                 'Accept-Charset': 'UTF-8'
                 }
