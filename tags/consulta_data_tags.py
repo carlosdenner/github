@@ -19,7 +19,7 @@ def consulta_data_das_tags_repositorios(arquivo):
     arquivo_saida = []
     datafimghtorrent = datetime.datetime(year=2019,month=5,day=31)
     #
-    for x in (range(200,250)):
+    for x in (range(0,1)):
 
         print(f'Repositório: {str(x)}')
         print(arquivo[x]['id'])
@@ -45,7 +45,7 @@ def consulta_data_das_tags_repositorios(arquivo):
                 url    = commit['url']
 
                 headers = {
-                    'Authorization' : 'token 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',
+                    'Authorization' : 'token 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',
                     'Accept': 'application/vnd.github.mercy-preview+json', 
                     'Accept-Charset': 'UTF-8'
                 }

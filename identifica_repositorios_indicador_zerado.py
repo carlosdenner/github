@@ -21,7 +21,7 @@ arquivo_json = ler_arquivo_json(nome_arquivo)
 arquivo_json_saida = []
 
 for i in range(len(arquivo_json)):
-    if arquivo_json[i]['data'] == '31-05-2019' and arquivo_json[i]['estrelas'] == 0:
+    if arquivo_json[i]['data'] == '31-05-2019' and arquivo_json[i]['releases'] == 0:
         arquivo_json_saida.append(arquivo_json[i])
 
 nome_arquivo_saida = f'saida-{str(nome_arquivo)}'

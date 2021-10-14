@@ -30,32 +30,17 @@ i = 0
 primeiro = True
 tamanho = int(len(arquivo_json_tags))
 x = 0
-print(f'tamanho: {str(tamanho)}')
+
 while x < tamanho:
 
-    if int(arquivo_json_tags[x]['id']) == 78029:
-        print("ACHOU !")
-        print(arquivo_json_tags[x])
-        print(arquivo_json_releases[i])
-
-    if int(arquivo_json_tags[x]['id']) == 82809:
-        print("ACHOU !")
-        print(arquivo_json_tags[x])
-        print(arquivo_json_releases[i])
-    print(f'x: {str(x)}')
-    print(f'i: {str(i)}')
-    print(arquivo_json_tags[x]['id'])
-    print(arquivo_json_releases[i]['id'])
     if arquivo_json_tags[x]['id'] == arquivo_json_releases[i]['id'] and arquivo_json_tags[x]['data'] != "":
         lista_releases = []
         lista_releases = arquivo_json_releases[i]['lista_releases']
 
-        #print(f'Tamanho lista: {str(len(lista_releases))}')
 
         if primeiro:
             # Transforma toda a lista em date time
             for z in range(len(lista_releases)):
-                #print(type(lista_releases[z]['data']))
                 data = datetime.datetime.strptime(lista_releases[z]['data'], "%d-%m-%Y")
                 lista_releases[z]['data'] = data
         
@@ -87,18 +72,33 @@ while x < tamanho:
         if arquivo_json_tags[x]['data'] == "":
             x = x + 1
 
-print("aqui")
+            lista_releases = []
+            lista_releases = arquivo_json_releases[i]['lista_releases']
+
+            # Transforma toda a lista em date time
+            for z in range(len(lista_releases)):
+                data = datetime.datetime.strptime(lista_releases[z]['data'], "%d-%m-%Y")
+                lista_releases[z]['data'] = data
+
+            arquivo_json_releases[i]['lista_releases'] = lista_releases
+
 for x in range(len(arquivo_json_releases)):
     print(arquivo_json_releases[x]['id'])
+    lista_releases = []
     lista_releases = arquivo_json_releases[x]['lista_releases']
-    #print(f'x1: {str(x)}')
+
     for i in range(len(lista_releases)):
-        print(lista_releases[i])
-        lista_releases[i]['data'] = datetime.datetime.strftime(lista_releases[i]['data'], "%d-%m-%Y")
+        data = datetime.datetime.strftime(lista_releases[i]['data'], "%d-%m-%Y")
+        lista_releases[i]['data'] = data
 
     arquivo_json_releases[x]['lista_releases'] = lista_releases
 
-print("aqui2")
-nome_arquivo_saida = f'tags-data-{str(arquivo_json_releases)}'
+#arquivo_json_releases_saida = []
+
+#for x in range(999,1000):
+#    print(arquivo_json_releases[x])
+#    arquivo_json_releases_saida.append(arquivo_json_releases[x])
+
+nome_arquivo_saida = 'tags-releases.json'
 
 gravar_arquivo_json(nome_arquivo_saida,arquivo_json_releases)
