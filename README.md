@@ -1,4 +1,4 @@
-Este repositório faz parte da pesquisa “Projetos Colaborativos de Software Livre: Estudo da Relação do Processo de Tomada de Decisão e o Sucesso”.
+<h1>Este repositório faz parte da pesquisa “Projetos Colaborativos de Software Livre: Estudo da Relação do Processo de Tomada de Decisão e o Sucesso” </h1>
 
 Projetos Colaborativos de Software Livre são modelos extremos de projetos de crowdsourcing bem-sucedidos, no centro destes está o processo de tomada de decisão (PTD). Contudo, poucas pesquisas investigam PTD entorno da codificação de software. Nesta pesquisa, investigaremos – por meio de estudos quantitativos – a correlação entre o sucesso do projeto e características da participação no PTD. Verificaremos se há correlação entre as variáveis sucesso do projeto e a quantidade de contribuidores dos Episódio de Tomada de Decisão (ETD), e se há correlação entre o sucesso do projeto e o nível de experiência dos constribuidores. 
 
@@ -8,38 +8,51 @@ Durante a análise dos dados foi identificado que 333 repositórios não possuí
 
 Os arquivos estão no formato JSON, e possuem a seguinte estrutura:
 
-historico-geral-de-indicadores-com-releases 
-{
-    "id":"367",  id do repositório
-    "data":"02-08-2012",
-    "estrelas":180,
-    "forks":1,
-    "releases":0,
-    "linhas_alteradas":73628
-  },
-  
-contribuidores-pull-request
-  {
-    "id_pull_request":"229034",
-    "repo_id":"367",
-    "id_contribuidor":"2376",
-    "data":"02-08-2012"
-  },
++ <b> historico-geral-de-indicadores-com-releases </b>
 
-historico-contribuidor-data-inicio-github
-{
-    "id":"6",  id do contribuidor
-    "data":"05-02-2010"
-  },
-historico-contribuidor-data-inicio-projeto
-{
-    "repo_id":"367",
-    "id_contribuidor":"11",
-    "data":"30-11-2017"
-  },
-quantidade-contribuidores-por-dia
-{
-    "id":"367",
-    "data":"02-08-2012",
-    "contribuidores":1
-  },
+		{
+
+		"id":"367", --> id do repositório
+		"data":"02-08-2012", 
+		"estrelas":180, 
+		"forks":1, 
+		"releases":0, 
+		"linhas_alteradas":73628 
+  		},
+  
++ <b> contribuidores-pull-request </b>
+		
+ 		 {
+    
+		"id_pull_request":"229034",
+   		 "repo_id":"367",
+  		 "id_contribuidor":"2376",
+  		 "data":"02-08-2012"
+  		},
+
++ <b>historico-contribuidor-data-inicio-github </b>
+
+		{
+		"id":"6", --> id do contribuidor
+		"data":"05-02-2010"
+		},
+
++ <b>historico-contribuidor-data-inicio-projeto </b>
+
+		{
+
+		"repo_id":"367",
+		"id_contribuidor":"11",
+		"data":"30-11-2017"
+
+		},
+
++ <b> quantidade-contribuidores-por-dia </b>
+
+		{
+
+		 "id":"367",
+		 "data":"02-08-2012",
+		"contribuidores":1
+
+		 },
