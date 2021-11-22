@@ -6,7 +6,13 @@ Os dados analisados são oriundos do dataset do GHTorrent, que possui dados de f
 
 Durante a análise dos dados foi identificado que 333 repositórios não possuíam releases, por este motivo decidimos retirar esses repositórios do histórico geral de indicadores, pois a ausência desta informação afetará o cálculo do escore de sucesso. Dessa forma, esta base de dados possui dados de 667 repositórios.
 
-Os arquivos estão no formato JSON, e possuem a seguinte estrutura:
+
+Os arquivos estão nos formatos CSV e JSON, devido a limitações de upload no GitHub os arquivos estão disponíveis no Google Drive no link:
+
+https://drive.google.com/drive/folders/1xU3lhJ_eeH6rB1vXm87ofxfX90_TOIGJ?usp=sharing
+
+
+os arquivos JSON possuem a seguinte estrutura:
 
 + <b> historico-geral-de-indicadores-com-releases </b>
 
